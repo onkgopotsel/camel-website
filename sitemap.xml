@@ -522,6 +522,10 @@
   </url>
   
   <url>
+    <loc>https://camel.apache.org/projects/</loc>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/community/articles/</loc>
   </url>
   
@@ -535,18 +539,6 @@
   
   <url>
     <loc>https://camel.apache.org/community/camel-extra/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/projects/camel-k/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/projects/camel-kafka-connector/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/projects/camel-quarkus/</loc>
   </url>
   
   <url>
@@ -567,10 +559,6 @@
   
   <url>
     <loc>https://camel.apache.org/news/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/projects/</loc>
   </url>
   
   <url>
