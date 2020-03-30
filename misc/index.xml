@@ -16,8 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://camel.apache.org/acknowledgments/</guid>
-      <description> Acknowledgments Many thanks to the following organizations for helping the Camel project.
- YourKit GmbH YourKit GmbH kindly provide free licenses for the YourKit Java Profiler to open source projects. YourKit Java Profiler is primarily used to investigate performance and memory leak issues reported in Apache Camel.  </description>
+      <description>Many thanks to the following organizations for helping the Camel project.
+ YourKit GmbH kindly provide free licenses for the YourKit Java Profiler to open source projects. YourKit Java Profiler is primarily used to investigate performance and memory leak issues reported in Apache Camel.
+ Netlify kindly provides pull request builds, checks and previews for this website.</description>
     </item>
     
   </channel>
