@@ -6,10 +6,20 @@
     <description>Recent content in Outreachy on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/categories/Outreachy/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Outreachy update</title>
+      <link>https://camel.apache.org/blog/Outreachy-May2020-Update/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/Outreachy-May2020-Update/</guid>
+      <description>The Apache Camel community is excited to have such a great response and effort already put in by the Outreachy applicants. We are grateful to all that contributed with code, ideas, helping others and being a part of our community.
+We received similar inquiries from several applicants, asking help with the timeline for the final application, intern selection criteria and similar. To help answer this and to be transparent to all involved, so each individual can reflect and make informed decisions, here are some of our thoughts.</description>
+    </item>
     
     <item>
       <title>Outreachy internship contributions open</title>
