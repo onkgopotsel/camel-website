@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://camel.apache.org/camel-kafka-connector/latest/getting-started-with-packages.html</loc>
-<lastmod>2020-04-21T18:26:27.387Z</lastmod>
+<lastmod>2020-04-21T21:55:11.988Z</lastmod>
 </url>
 <url>
 <loc>https://camel.apache.org/camel-kafka-connector/latest/index.html</loc>
-<lastmod>2020-04-21T18:26:27.387Z</lastmod>
+<lastmod>2020-04-21T21:55:11.988Z</lastmod>
 </url>
 <url>
 <loc>https://camel.apache.org/camel-kafka-connector/latest/try-it-out-locally.html</loc>
-<lastmod>2020-04-21T18:26:27.387Z</lastmod>
+<lastmod>2020-04-21T21:55:11.988Z</lastmod>
 </url>
 <url>
 <loc>https://camel.apache.org/camel-kafka-connector/latest/try-it-out-on-openshift-with-strimzi.html</loc>
-<lastmod>2020-04-21T18:26:27.387Z</lastmod>
+<lastmod>2020-04-21T21:55:11.988Z</lastmod>
 </url>
 </urlset>
