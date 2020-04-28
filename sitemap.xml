@@ -198,6 +198,11 @@
   </url>
   
   <url>
+    <loc>https://camel.apache.org/blog/Camel-Kafka-connector-release-0.1.0/</loc>
+    <lastmod>2019-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/blog/Camel-Kafka-connector-intro/</loc>
     <lastmod>2019-12-14T00:00:00+00:00</lastmod>
   </url>
