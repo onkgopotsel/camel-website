@@ -6,10 +6,21 @@
     <description>Recent content in Releases on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/categories/Releases/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Camel Quarkus 1.0.0-M7 Released</title>
+      <link>https://camel.apache.org/blog/Camel-Quarkus-release-1.0.0-M7/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/Camel-Quarkus-release-1.0.0-M7/</guid>
+      <description>The Apache Camel community is pleased to announce the release 1.0.0-M7 of Camel Quarkus. Camel Quarkus ports the outstanding integration capabilities of Apache Camel to Quarkus - the toolkit for writing subatomically small and supersonically fast Java, Kotlin and Scala applications.
+So what is new in Camel Quarkus 1.0.0-M7?
+Java 8 is deprecated Camel Quarkus works well on Java 11 (thanks Luca and James!). We can hardly support Java 8 without Quarkus itself supporting it.</description>
+    </item>
     
     <item>
       <title>Apache Camel Kafka Connector 0.1.0 Released</title>
