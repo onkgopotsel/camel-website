@@ -6,10 +6,21 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CDC with Camel and Debezium</title>
+      <link>https://camel.apache.org/blog/CdcWithCamelAndDebezium/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/CdcWithCamelAndDebezium/</guid>
+      <description>Change Data Capture (CDC) is a well-established software design pattern for a system that monitors and captures the changes in data, so that other software can respond to those changes.
+Using a CDC engine like Debezium along with Camel integration framework, we can easily build data pipelines to bridge traditional data stores and new cloud-native event-driven architectures.
+The advantages of CDC comparing to a simple poll-based or query-based process are:</description>
+    </item>
     
     <item>
       <title>Camel Quarkus 1.0.0-M7 Released</title>
