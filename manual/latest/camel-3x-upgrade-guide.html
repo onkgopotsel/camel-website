@@ -94,205 +94,64 @@
         &lt;multicast stopOnException="{{stop}}"&gt;
             &lt;to uri="mock:a"/&gt;
         &lt;/multicast&gt;
-    &lt;/route&gt;</code></pre> </div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="_upgrading_camel_3_1_to_3_2"><a class="anchor" href="#_upgrading_camel_3_1_to_3_2"></a>Upgrading Camel 3.1 to 3.2</h2> <div class="sectionbody"> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-=== JndiRegistry hljs" data-lang="=== JndiRegistry">The deprecated class `org.apache.camel.impl.JndiRegistry` was removed. `org.apache.camel.support.jndi.JndiBeanRepository` should be used instead.
-
-=== Rest Configuration
-
-The rest configuration has been simplified and there is now a single RestConfiguration instance (https://issues.apache.org/jira/browse/CAMEL-13844[CAMEL-13844]) per Camel Context.
-
-The following methods have been removed:
-
-* org.apache.camel.CamelContext#addRestConfiguration(RestConfiguration restConfiguration)
-* org.apache.camel.CamelContext#getRestConfiguration(String component, boolean defaultIfNotFound)
-* org.apache.camel.CamelContext#getRestConfigurations
-
-https://issues.apache.org/jira/browse/CAMEL-13844
-
-=== Camel Cloud
-
-The following `ServiceDiscovery` implementation has been removed:
-
-* org.apache.camel.impl.cloud.CachingServiceDiscovery
-* org.apache.camel.impl.cloud.CachingServiceDiscoveryFactory
-
-https://issues.apache.org/jira/browse/CAMEL-14813
-
-=== Camel with Karaf and OSGi
-
-Camel on Apache Karaf / OSGi has been moved to its own project at: https://github.com/apache/camel-karaf
-
-The Maven dependencies has changed the groupid from `org.apache.camel` to `org.apache.camel.karaf`.
-
-For example the `camel-blueprint` would be changed from
-
-[source,xml]
-----
-&lt;dependency&gt;
+    &lt;/route&gt;</code></pre> </div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="_upgrading_camel_3_1_to_3_2"><a class="anchor" href="#_upgrading_camel_3_1_to_3_2"></a>Upgrading Camel 3.1 to 3.2</h2> <div class="sectionbody"> <div class="sect2"> <h3 id="_jndiregistry"><a class="anchor" href="#_jndiregistry"></a>JndiRegistry</h3> <div class="paragraph"> <p>The deprecated class <code>org.apache.camel.impl.JndiRegistry</code> has been removed. The class <code>org.apache.camel.support.jndi.JndiBeanRepository</code> located in <code>org.apache.camel:camel-support</code> should be used instead.</p> </div> </div> <div class="sect2"> <h3 id="_rest_configuration"><a class="anchor" href="#_rest_configuration"></a>Rest Configuration</h3> <div class="paragraph"> <p>The rest configuration has been simplified and there is now a single RestConfiguration instance (<a href="https://issues.apache.org/jira/browse/CAMEL-13844">CAMEL-13844</a>) per Camel Context.</p> </div> <div class="paragraph"> <p>The following methods have been removed:</p> </div> <div class="ulist"> <ul> <li> <p>org.apache.camel.CamelContext#addRestConfiguration(RestConfiguration restConfiguration)</p> </li> <li> <p>org.apache.camel.CamelContext#getRestConfiguration(String component, boolean defaultIfNotFound)</p> </li> <li> <p>org.apache.camel.CamelContext#getRestConfigurations</p> </li> </ul> </div> <div class="paragraph"> <p><a href="https://issues.apache.org/jira/browse/CAMEL-13844" class="bare">https://issues.apache.org/jira/browse/CAMEL-13844</a></p> </div> </div> <div class="sect2"> <h3 id="_camel_cloud"><a class="anchor" href="#_camel_cloud"></a>Camel Cloud</h3> <div class="paragraph"> <p>The following <code>ServiceDiscovery</code> implementation has been removed:</p> </div> <div class="ulist"> <ul> <li> <p>org.apache.camel.impl.cloud.CachingServiceDiscovery</p> </li> <li> <p>org.apache.camel.impl.cloud.CachingServiceDiscoveryFactory</p> </li> </ul> </div> <div class="paragraph"> <p><a href="https://issues.apache.org/jira/browse/CAMEL-14813" class="bare">https://issues.apache.org/jira/browse/CAMEL-14813</a></p> </div> </div> <div class="sect2"> <h3 id="_camel_with_karaf_and_osgi"><a class="anchor" href="#_camel_with_karaf_and_osgi"></a>Camel with Karaf and OSGi</h3> <div class="paragraph"> <p>Camel on Apache Karaf / OSGi has been moved to its own project at: <a href="https://github.com/apache/camel-karaf" class="bare">https://github.com/apache/camel-karaf</a></p> </div> <div class="paragraph"> <p>The Maven dependencies has changed the groupid from <code>org.apache.camel</code> to <code>org.apache.camel.karaf</code>.</p> </div> <div class="paragraph"> <p>For example the <code>camel-blueprint</code> would be changed from</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-blueprint&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-blueprint&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-The Camel Karaf features are the same as before, you can still install Camel in Karaf shell via:
-[source,text]
-----
-feature:repo-add camel 3.2.0
-feature:install camel
-----
-
-==== Other components involved
-
-- Camel-test-blueprint
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>The Camel Karaf features are the same as before, you can still install Camel in Karaf shell via:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">feature:repo-add camel 3.2.0
+feature:install camel</code></pre> </div> </div> <div class="sect3"> <h4 id="_other_components_involved"><a class="anchor" href="#_other_components_involved"></a>Other components involved</h4> <div class="ulist"> <ul> <li> <p>Camel-test-blueprint</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-test-blueprint&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-test-blueprint&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-- Camel-test-karaf
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="ulist"> <ul> <li> <p>Camel-test-karaf</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-test-karaf&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-test-karaf&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-- Camel-eventadmin
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="ulist"> <ul> <li> <p>Camel-eventadmin</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-eventadmin&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-eventadmin&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-- Camel-kura
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="ulist"> <ul> <li> <p>Camel-kura</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-kura&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-kura&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-- Camel-osgi-activator
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="ulist"> <ul> <li> <p>Camel-osgi-activator</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-osgi-activator&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-osgi-activator&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-- Camel-paxlogging
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="ulist"> <ul> <li> <p>Camel-paxlogging</p> </li> </ul> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
   &lt;artifactId&gt;camel-paxlogging&lt;/artifactId&gt;
   &lt;version&gt;3.1.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-To:
-
-[source,xml]
-----
-&lt;dependency&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.camel.karaf&lt;/groupId&gt;
   &lt;artifactId&gt;camel-paxlogging&lt;/artifactId&gt;
   &lt;version&gt;3.2.0&lt;/version&gt;
-&lt;/dependency&gt;
-----
-
-==== Introducing a camel-karaf-bom
-
-We introduce a camel-karaf-bom too, so the end-users should be able to have all of this dependencies easier:
-
-[source,xml]
-----
-    &lt;dependencyManagement&gt;
+&lt;/dependency&gt;</code></pre> </div> </div> </div> <div class="sect3"> <h4 id="_introducing_a_camel_karaf_bom"><a class="anchor" href="#_introducing_a_camel_karaf_bom"></a>Introducing a camel-karaf-bom</h4> <div class="paragraph"> <p>We introduce a camel-karaf-bom too, so the end-users should be able to have all of this dependencies easier:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;dependencyManagement&gt;
         &lt;dependencies&gt;
             &lt;!-- Add Camel BOM --&gt;
             &lt;dependency&gt;
@@ -311,134 +170,15 @@ We introduce a camel-karaf-bom too, so the end-users should be able to have all 
                 &lt;scope&gt;import&lt;/scope&gt;
             &lt;/dependency&gt;
         &lt;/dependencies&gt;
-    &lt;/dependencyManagement&gt;
-----
-
-In this way you'll get both the boms and all the "goodies"
-
-=== camel-elytron
-
-Transitive dependencies from org.wildfly.security:wildfly-elytron were removed.
-
-=== camel-spark-rest
-
-This component has been removed. Use any of the other REST capable components, such as `camel-jetty`, `camel-netty-http`
-or `camel-undertow`.
-
-=== EIPs with cacheSize option
-
-The `cacheSize` option on EIPs has been improved to reduce memory usage when the cache is disabled by
-setting the value to -1. One of the optimizations is that new endpoints will not be added to the endpoint registry,
-but discarded after use. This avoids storing additional endpoints in the cache (memory) as the cache should be disabled (cacheSize=-1).
-
-See more details in the documentation for the `cacheSize` option on the EIPs.
-
-=== Configuring components via Java setters
-
-Configuring Camel components from plain Java code has changed in some components where they were using
-delegate setters for a nested configuration class. These delegates has been removed, to ensure configuration
-is more consistent and aligned with how endpoints is configured as well, and by using source code generated configurer classes.
-
-The following Camel components has been affected and changed on the component level:
-
-- camel-aws
-- camel-aws2
-- camel-consul
-- camel-etcd
-- camel-infinispan
-- camel-kafka
-- camel-servicenow
-- camel-ssh
-- camel-stomp
-- camel-xmlsecurity
-- camel-yammer
-
-This only affects if you are configuring these components using Java code or XML `&lt;bean&gt;` style.
-
-For example
-
-[source,java]
-----
-KafkaComponent kafka = new KafkaComponent();
-kafka.setBrokers("mybroker1:1234,mybroker2:1234");
-----
-
-Should now be:
-
-[source,java]
-----
-KafkaComponent kafka = new KafkaComponent();
-kafka.getConfiguration().setBrokers("mybroker1:1234,mybroker2:1234");
-----
-
-And in XML:
-
-[source,xml]
-----
-&lt;bean id="kafka" class="org.apache.camel.component.kafka.KafkaComponent"&gt;
+    &lt;/dependencyManagement&gt;</code></pre> </div> </div> <div class="paragraph"> <p>In this way you&#8217;ll get both the boms and all the "goodies"</p> </div> </div> </div> <div class="sect2"> <h3 id="_camel_elytron"><a class="anchor" href="#_camel_elytron"></a>camel-elytron</h3> <div class="paragraph"> <p>Transitive dependencies from org.wildfly.security:wildfly-elytron were removed.</p> </div> </div> <div class="sect2"> <h3 id="_camel_spark_rest"><a class="anchor" href="#_camel_spark_rest"></a>camel-spark-rest</h3> <div class="paragraph"> <p>This component has been removed. Use any of the other REST capable components, such as <code>camel-jetty</code>, <code>camel-netty-http</code> or <code>camel-undertow</code>.</p> </div> </div> <div class="sect2"> <h3 id="_eips_with_cachesize_option"><a class="anchor" href="#_eips_with_cachesize_option"></a>EIPs with cacheSize option</h3> <div class="paragraph"> <p>The <code>cacheSize</code> option on EIPs has been improved to reduce memory usage when the cache is disabled by setting the value to -1. One of the optimizations is that new endpoints will not be added to the endpoint registry, but discarded after use. This avoids storing additional endpoints in the cache (memory) as the cache should be disabled (cacheSize=-1).</p> </div> <div class="paragraph"> <p>See more details in the documentation for the <code>cacheSize</code> option on the EIPs.</p> </div> </div> <div class="sect2"> <h3 id="_configuring_components_via_java_setters"><a class="anchor" href="#_configuring_components_via_java_setters"></a>Configuring components via Java setters</h3> <div class="paragraph"> <p>Configuring Camel components from plain Java code has changed in some components where they were using delegate setters for a nested configuration class. These delegates has been removed, to ensure configuration is more consistent and aligned with how endpoints is configured as well, and by using source code generated configurer classes.</p> </div> <div class="paragraph"> <p>The following Camel components has been affected and changed on the component level:</p> </div> <div class="ulist"> <ul> <li> <p>camel-aws</p> </li> <li> <p>camel-aws2</p> </li> <li> <p>camel-consul</p> </li> <li> <p>camel-etcd</p> </li> <li> <p>camel-infinispan</p> </li> <li> <p>camel-kafka</p> </li> <li> <p>camel-servicenow</p> </li> <li> <p>camel-ssh</p> </li> <li> <p>camel-stomp</p> </li> <li> <p>camel-xmlsecurity</p> </li> <li> <p>camel-yammer</p> </li> </ul> </div> <div class="paragraph"> <p>This only affects if you are configuring these components using Java code or XML <code>&lt;bean&gt;</code> style.</p> </div> <div class="paragraph"> <p>For example</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KafkaComponent kafka = new KafkaComponent();
+kafka.setBrokers("mybroker1:1234,mybroker2:1234");</code></pre> </div> </div> <div class="paragraph"> <p>Should now be:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">KafkaComponent kafka = new KafkaComponent();
+kafka.getConfiguration().setBrokers("mybroker1:1234,mybroker2:1234");</code></pre> </div> </div> <div class="paragraph"> <p>And in XML:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="kafka" class="org.apache.camel.component.kafka.KafkaComponent"&gt;
   &lt;property name="brokers" value="mybroker1:1234,mybroker2:1234"/&gt;
-&lt;/bean&gt;
-----
-
-Should now be:
-
-[source,xml]
-----
-&lt;bean id="kafka" class="org.apache.camel.component.kafka.KafkaComponent"&gt;
+&lt;/bean&gt;</code></pre> </div> </div> <div class="paragraph"> <p>Should now be:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="kafka" class="org.apache.camel.component.kafka.KafkaComponent"&gt;
   &lt;property name="configuration"&gt;
     &lt;property name="brokers" value="mybroker1:1234,mybroker2:1234"/&gt;
   &lt;/property&gt;
-&lt;/bean&gt;
-----
-
-=== Configuring components via Spring Boot auto configuration
-
-Configuring Camel spring boot components has changed its option keys to be flattened and have the `.configuration` prefix
-removed now.
-
-Before in application.properties
-
-[source,properties]
-----
-camel.component.kafka.configuration.brokers=mybroker1:1234,mybroker2:1234
-----
-
-Should now be
-[source,properties]
-----
-camel.component.kafka.brokers=mybroker1:1234,mybroker2:1234
-----
-
-This applies to all the Camel spring boot _starter_ JARs where basically `.configuration` should be removed.
-
-=== Configuring camel-activemq, camel-amqp and camel-stomp via Spring Boot auto configuration
-
-When configuring these components from spring boot auto-configuration then the URL for the broker was named `broker-u-r-l`
-in the spring boot auto configuration support. This has been renamed to `broker-url` and a few other options too.
-
-Before:
-
-[source,properties]
-----
-camel.component.activemq.broker-u-r-l=tcp://localhost:61616
-----
-
-After:
-
-[source,properties]
-----
-camel.component.activemq.broker-url=tcp://localhost:61616
-----
-
-=== camel-any23
-
-The XML DSL has changed for the `&lt;configuration&gt;` element, which now
-is flattened so the key/values should be configured on it directly:
-
-Before:
-[source,xml]
-----
-&lt;dataFormats&gt;
+&lt;/bean&gt;</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_configuring_components_via_spring_boot_auto_configuration"><a class="anchor" href="#_configuring_components_via_spring_boot_auto_configuration"></a>Configuring components via Spring Boot auto configuration</h3> <div class="paragraph"> <p>Configuring Camel spring boot components has changed its option keys to be flattened and have the <code>.configuration</code> prefix removed now.</p> </div> <div class="paragraph"> <p>Before in application.properties</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">camel.component.kafka.configuration.brokers=mybroker1:1234,mybroker2:1234</code></pre> </div> </div> <div class="paragraph"> <p>Should now be</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">camel.component.kafka.brokers=mybroker1:1234,mybroker2:1234</code></pre> </div> </div> <div class="paragraph"> <p>This applies to all the Camel spring boot <em>starter</em> JARs where basically <code>.configuration</code> should be removed.</p> </div> </div> <div class="sect2"> <h3 id="_configuring_camel_activemq_camel_amqp_and_camel_stomp_via_spring_boot_auto_configuration"><a class="anchor" href="#_configuring_camel_activemq_camel_amqp_and_camel_stomp_via_spring_boot_auto_configuration"></a>Configuring camel-activemq, camel-amqp and camel-stomp via Spring Boot auto configuration</h3> <div class="paragraph"> <p>When configuring these components from spring boot auto-configuration then the URL for the broker was named <code>broker-u-r-l</code> in the spring boot auto configuration support. This has been renamed to <code>broker-url</code> and a few other options too.</p> </div> <div class="paragraph"> <p>Before:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">camel.component.activemq.broker-u-r-l=tcp://localhost:61616</code></pre> </div> </div> <div class="paragraph"> <p>After:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">camel.component.activemq.broker-url=tcp://localhost:61616</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_camel_any23"><a class="anchor" href="#_camel_any23"></a>camel-any23</h3> <div class="paragraph"> <p>The XML DSL has changed for the <code>&lt;configuration&gt;</code> element, which now is flattened so the key/values should be configured on it directly:</p> </div> <div class="paragraph"> <p>Before:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dataFormats&gt;
   &lt;any23 id="any23" baseURI ="http://mock.foo/bar" outputFormat="TURTLE" &gt;
     &lt;configuration&gt;
       &lt;property key="any23.extraction.metadata.nesting" value="off" /&gt;
@@ -446,47 +186,13 @@ Before:
     &lt;/configuration&gt;
     &lt;extractors&gt;html-head-title&lt;/extractors&gt;
   &lt;/any23&gt;
-&lt;/dataFormats&gt;
-----
-
-After:
-
-[source,xml]
-----
-&lt;dataFormats&gt;
+&lt;/dataFormats&gt;</code></pre> </div> </div> <div class="paragraph"> <p>After:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dataFormats&gt;
   &lt;any23 id="any23" baseURI ="http://mock.foo/bar" outputFormat="TURTLE" &gt;
     &lt;configuration key="any23.extraction.metadata.nesting" value="off"/&gt;
     &lt;configuration key="another-key" value="another-value"/&gt;
     &lt;extractors&gt;html-head-title&lt;/extractors&gt;
   &lt;/any23&gt;
-&lt;/dataFormats&gt;
-----
-
-=== camel-avro
-
-The avro component and data format has been split up into two JARs. The dataformat is in `camel-avro` JAR
-and the component in `camel-avro-rpc` JAR.
-
-=== camel-infinispan
-
-Camel now requires endpoint URIs to include context-path which means
-the endpoint URI `infinispan` should be changed to `infinispan:current`.
-
-=== google-pubnub
-
-The google-pubnub component has been improved to use a new Java library and become faster.
-
-Support for Apache Karaf has been removed.
-
-=== camel-xstream
-
-The XML DSL has changed for the `&lt;converters&gt;`, `&lt;alias&gt;`, `implicitCollections`, and `omitFields` elements,
-which now is flattened so the key/values should be configured on it directly.
-
-Before:
-[source,xml]
-----
-&lt;xstream id="xstream-1" mode="NO_REFERENCES"
+&lt;/dataFormats&gt;</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_camel_avro"><a class="anchor" href="#_camel_avro"></a>camel-avro</h3> <div class="paragraph"> <p>The avro component and data format has been split up into two JARs. The dataformat is in <code>camel-avro</code> JAR and the component in <code>camel-avro-rpc</code> JAR.</p> </div> </div> <div class="sect2"> <h3 id="_camel_infinispan"><a class="anchor" href="#_camel_infinispan"></a>camel-infinispan</h3> <div class="paragraph"> <p>Camel now requires endpoint URIs to include context-path which means the endpoint URI <code>infinispan</code> should be changed to <code>infinispan:current</code>.</p> </div> </div> <div class="sect2"> <h3 id="_google_pubnub"><a class="anchor" href="#_google_pubnub"></a>google-pubnub</h3> <div class="paragraph"> <p>The google-pubnub component has been improved to use a new Java library and become faster.</p> </div> <div class="paragraph"> <p>Support for Apache Karaf has been removed.</p> </div> </div> <div class="sect2"> <h3 id="_camel_xstream"><a class="anchor" href="#_camel_xstream"></a>camel-xstream</h3> <div class="paragraph"> <p>The XML DSL has changed for the <code>&lt;converters&gt;</code>, <code>&lt;alias&gt;</code>, <code>implicitCollections</code>, and <code>omitFields</code> elements, which now is flattened so the key/values should be configured on it directly.</p> </div> <div class="paragraph"> <p>Before:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;xstream id="xstream-1" mode="NO_REFERENCES"
     permissions="-org.apache.camel.dataformat.xstream.*,org.apache.camel.dataformat.xstream.PurchaseHistory,org.apache.camel.dataformat.xstream.PurchaseOrder"&gt;
     &lt;converters&gt;
         &lt;converter class="org.apache.camel.dataformat.xstream.XStreamConfigurationTest$PurchaseOrderConverter" /&gt;
@@ -499,190 +205,23 @@ Before:
           &lt;field&gt;history&lt;/field&gt;
        &lt;/class&gt;
     &lt;/implicitCollections&gt;
-&lt;/xstream&gt;
-----
-
-After:
-[source,xml]
-----
-&lt;xstream id="xstream-1" mode="NO_REFERENCES"
+&lt;/xstream&gt;</code></pre> </div> </div> <div class="paragraph"> <p>After:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;xstream id="xstream-1" mode="NO_REFERENCES"
     permissions="-org.apache.camel.dataformat.xstream.*,org.apache.camel.dataformat.xstream.PurchaseHistory,org.apache.camel.dataformat.xstream.PurchaseOrder"&gt;
     &lt;converters key="purchase-converter" value="org.apache.camel.dataformat.xstream.XStreamConfigurationTest$PurchaseOrderConverter"/&gt;
     &lt;aliases key="purchase-order" value="org.apache.camel.dataformat.xstream.PurchaseOrder"/&gt;
     &lt;implicitCollections key="org.apache.camel.dataformat.xstream.PurchaseHistory" value="history"/&gt;
-&lt;/xstream&gt;
-----
-
-Multiple values for `implicitCollections` and `omitFields` can be separated by comma
-
-For example:
-[source,xml]
-----
-&lt;implicitCollections key="org.apache.camel.dataformat.xstream.PurchaseHistory" value="history,adress"/&gt;
-----
-
-=== camel-weather
-
-This component has been upgraded from using Apache Http Client 3.x to 4.x and is therefore not fully backwards compatible.
-Some options for configurer and setting proxy is removed. You can however configure this directly on a custom `HttpClient` instance
-and set this on the `WeatherComponent` to use.
-
-=== Endpoint URIs without context path
-
-Previously Camel components may work by referring to their name only without a colon and context path (eg `log`)
-that for a few components would allow them to create an endpoint anyway.
-
-Now this is not allowed and Camel will throw an `NoSuchEndpointException`.
-
-An endpoint by its logical id can still be referred by the id only, eg
-[source,java]
-----
-Endpoint endpoint = camelContext.getEndpoint("myCoolEndpoint");
-----
-
-=== Error handling
-
-The context scope error handling has been modified a bit.  The processors in those `onException` and
-`onCompletion` are not shared between routes anymore.  This should have little effect in most cases.
-If there is a need to have a single set of processors involved (such as when using a loadbalancer or
-other stateful patterns), then an intermediary route needs to be used. The following excerpt:
-
-[source,java]
-----
-onException(Exception.class).handled(true)
+&lt;/xstream&gt;</code></pre> </div> </div> <div class="paragraph"> <p>Multiple values for <code>implicitCollections</code> and <code>omitFields</code> can be separated by comma</p> </div> <div class="paragraph"> <p>For example:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;implicitCollections key="org.apache.camel.dataformat.xstream.PurchaseHistory" value="history,adress"/&gt;</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_camel_weather"><a class="anchor" href="#_camel_weather"></a>camel-weather</h3> <div class="paragraph"> <p>This component has been upgraded from using Apache Http Client 3.x to 4.x and is therefore not fully backwards compatible. Some options for configurer and setting proxy is removed. You can however configure this directly on a custom <code>HttpClient</code> instance and set this on the <code>WeatherComponent</code> to use.</p> </div> </div> <div class="sect2"> <h3 id="_endpoint_uris_without_context_path"><a class="anchor" href="#_endpoint_uris_without_context_path"></a>Endpoint URIs without context path</h3> <div class="paragraph"> <p>Previously Camel components may work by referring to their name only without a colon and context path (eg <code>log</code>) that for a few components would allow them to create an endpoint anyway.</p> </div> <div class="paragraph"> <p>Now this is not allowed and Camel will throw an <code>NoSuchEndpointException</code>.</p> </div> <div class="paragraph"> <p>An endpoint by its logical id can still be referred by the id only, eg</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Endpoint endpoint = camelContext.getEndpoint("myCoolEndpoint");</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_error_handling"><a class="anchor" href="#_error_handling"></a>Error handling</h3> <div class="paragraph"> <p>The context scope error handling has been modified a bit. The processors in those <code>onException</code> and <code>onCompletion</code> are not shared between routes anymore. This should have little effect in most cases. If there is a need to have a single set of processors involved (such as when using a loadbalancer or other stateful patterns), then an intermediary route needs to be used. The following excerpt:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">onException(Exception.class).handled(true)
     .loadBalance().roundRobin().id("round")
-    .to("mock:error", "mock:error2", "mock:error3");
-----
-
-... needs to be rewritten as:
-
-[source,java]
-----
-onException(Exception.class).handled(true).to("direct:error");
+    .to("mock:error", "mock:error2", "mock:error3");</code></pre> </div> </div> <div class="olist lowerroman"> <ol class="lowerroman" type="i"> <li> <p>needs to be rewritten as:</p> </li> </ol> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">onException(Exception.class).handled(true).to("direct:error");
 
 from("direct:error").loadBalance().roundRobin().id("round")
-    .to("mock:error", "mock:error2", "mock:error3");
-----
-
-=== camel-cluster
-
-The base support for cluster in `org.apache.camel.cluster` has been moved
-out of `camel-core-engine` into separate JAR named `camel-cluster`.
-
-=== Configuring milli seconds
-
-Camel was using a type converter from `String` -&gt; `long` that accepted
-a time pattern which allowed to configure long values such as `2s` for 2 seconds, e.g. `2000`.
-And more complex such as `8h15m` for 8 hours and 15 minutes.
-
-However as this was implemented as part of `String` -&gt; `long` type conversion
-which then adds a little bit of overhead during routing, when converting from String to plain numbers.
-
-To make Camel routing engine as fast as possible this feature has been removed.
-
-For example a timer with a 5 second period
-
-[source,java]
-----
-from("timer:foo?period=5s")
-----
-
-Should now be specified as numeric only:
-
-[source,java]
-----
-from("timer:foo?period=5000")
-----
-
-=== Main in camel-spring
-
-The `org.apache.camel.spring.Main` class has been moved out of `camel-spring` JAR into its own
-JAR named `camel-spring-main`.
-
-=== Main in camel-test-blueprint
-
-The `org.apache.camel.test.blueprint.Main` class has been renamed to `org.apache.camel.test.blueprint.Main`
-and moved into its own `camel-test-blueprint` JAR.
-
-To use the camel-maven-plugin goal `camel:run` with OSGi plugin, you now need to add the following dependency
-to the classpath `org.apache.camel.karaf:camel-blueprint-main`.
-
-=== API changes
-
-==== DefaultComponent
-
-The deprecated method `preProcessUri` has been removed.
-
-==== CamelContext
-
-The method `getEndpoint` now throws `NoSuchEndpointException` directly instead of being wrapped
-within an `FailedToResolveEndpoint`.
-
-==== JavaUuidGenerator
-
-The `org.apache.camel.impl.engine.JavaUuidGenerator` class has been removed.
-Its a very slow UUID generator and its not recommended to be used.
-
-==== PropertiesComponent
-
-The `org.apache.camel.component.properties.PropertiesFunction` has been moved to `org.apache.camel.spi.PropertiesFunction`
-and its now possible to add custom functions on the `org.apache.camel.spi.PropertiesComponent` interface.
-
-====  JMX Connector configuration removed
-
-The JMX Connector configuration in camel-management has been https://issues.apache.org/jira/browse/CAMEL-14811[removed]
-in Camel 3.2.0. If you want to support the ability to use JMX with Camel remotely, then
-just use the default JVM JMX remote capabilities. For example, use the following (insecure)
-JVM settings to be able to manage Camel remotely on localhost, port 9913:
-
-[source]
-----
--Dcom.sun.management.jmxremote.port=9913
+    .to("mock:error", "mock:error2", "mock:error3");</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_camel_cluster"><a class="anchor" href="#_camel_cluster"></a>camel-cluster</h3> <div class="paragraph"> <p>The base support for cluster in <code>org.apache.camel.cluster</code> has been moved out of <code>camel-core-engine</code> into separate JAR named <code>camel-cluster</code>.</p> </div> </div> <div class="sect2"> <h3 id="_configuring_milli_seconds"><a class="anchor" href="#_configuring_milli_seconds"></a>Configuring milli seconds</h3> <div class="paragraph"> <p>Camel was using a type converter from <code>String</code> &#8594; <code>long</code> that accepted a time pattern which allowed to configure long values such as <code>2s</code> for 2 seconds, e.g. <code>2000</code>. And more complex such as <code>8h15m</code> for 8 hours and 15 minutes.</p> </div> <div class="paragraph"> <p>However as this was implemented as part of <code>String</code> &#8594; <code>long</code> type conversion which then adds a little bit of overhead during routing, when converting from String to plain numbers.</p> </div> <div class="paragraph"> <p>To make Camel routing engine as fast as possible this feature has been removed.</p> </div> <div class="paragraph"> <p>For example a timer with a 5 second period</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from("timer:foo?period=5s")</code></pre> </div> </div> <div class="paragraph"> <p>Should now be specified as numeric only:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from("timer:foo?period=5000")</code></pre> </div> </div> </div> <div class="sect2"> <h3 id="_main_in_camel_spring"><a class="anchor" href="#_main_in_camel_spring"></a>Main in camel-spring</h3> <div class="paragraph"> <p>The <code>org.apache.camel.spring.Main</code> class has been moved out of <code>camel-spring</code> JAR into its own JAR named <code>camel-spring-main</code>.</p> </div> </div> <div class="sect2"> <h3 id="_main_in_camel_test_blueprint"><a class="anchor" href="#_main_in_camel_test_blueprint"></a>Main in camel-test-blueprint</h3> <div class="paragraph"> <p>The <code>org.apache.camel.test.blueprint.Main</code> class has been renamed to <code>org.apache.camel.test.blueprint.Main</code> and moved into its own <code>camel-test-blueprint</code> JAR.</p> </div> <div class="paragraph"> <p>To use the camel-maven-plugin goal <code>camel:run</code> with OSGi plugin, you now need to add the following dependency to the classpath <code>org.apache.camel.karaf:camel-blueprint-main</code>.</p> </div> </div> <div class="sect2"> <h3 id="_api_changes_2"><a class="anchor" href="#_api_changes_2"></a>API changes</h3> <div class="sect3"> <h4 id="_defaultcomponent"><a class="anchor" href="#_defaultcomponent"></a>DefaultComponent</h4> <div class="paragraph"> <p>The deprecated method <code>preProcessUri</code> has been removed.</p> </div> </div> <div class="sect3"> <h4 id="_camelcontext_2"><a class="anchor" href="#_camelcontext_2"></a>CamelContext</h4> <div class="paragraph"> <p>The method <code>getEndpoint</code> now throws <code>NoSuchEndpointException</code> directly instead of being wrapped within an <code>FailedToResolveEndpoint</code>.</p> </div> </div> <div class="sect3"> <h4 id="_javauuidgenerator"><a class="anchor" href="#_javauuidgenerator"></a>JavaUuidGenerator</h4> <div class="paragraph"> <p>The <code>org.apache.camel.impl.engine.JavaUuidGenerator</code> class has been removed. Its a very slow UUID generator and its not recommended to be used.</p> </div> </div> <div class="sect3"> <h4 id="_propertiescomponent"><a class="anchor" href="#_propertiescomponent"></a>PropertiesComponent</h4> <div class="paragraph"> <p>The <code>org.apache.camel.component.properties.PropertiesFunction</code> has been moved to <code>org.apache.camel.spi.PropertiesFunction</code> and its now possible to add custom functions on the <code>org.apache.camel.spi.PropertiesComponent</code> interface.</p> </div> </div> <div class="sect3"> <h4 id="_jmx_connector_configuration_removed"><a class="anchor" href="#_jmx_connector_configuration_removed"></a>JMX Connector configuration removed</h4> <div class="paragraph"> <p>The JMX Connector configuration in camel-management has been <a href="https://issues.apache.org/jira/browse/CAMEL-14811">removed</a> in Camel 3.2.0. If you want to support the ability to use JMX with Camel remotely, then just use the default JVM JMX remote capabilities. For example, use the following (insecure) JVM settings to be able to manage Camel remotely on localhost, port 9913:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code>-Dcom.sun.management.jmxremote.port=9913
 -Dcom.sun.management.jmxremote.authenticate=false
 -Dcom.sun.management.jmxremote.ssl=false
--Djava.rmi.server.hostname=localhost
-----
-
-== Upgrading Camel 3.2 to 3.3
-
-=== API changes
-
-The dump model classes in package `org.apache.camel.support.dump` has been removed
-as they were not in use by Camel.
-
-In relation to the dump model classes removal, in camel-karaf the following commands were removed: `context-info`, `route-info`, `route-profile` and `route-step`.
-
-=== camel-jackson
-
-The dependency on `jackson-module-jaxb-annotations` and the option `enableJaxbAnnotationModule` have been removed. To
-enable support for JAXB annotations, users have to:
-
-* explicit add `jackson-module-jaxb-annotations`
-* configure the `JacksonDataFormat` and/or the `JacksonTypeConverters` module classes, example:
-+
-.JacksonDataFormat
-[source,java]
-----
-JacksonDataFormat formatPojo = new JacksonDataFormat(TestJAXBPojo.class);
-formatPojo.setModuleClassNames(JaxbAnnotationModule.class.getName());
-----
-+
-.JacksonTypeConverters
-[source,java]
-----
-context.getGlobalOptions().put(JacksonConstants.ENABLE_TYPE_CONVERTER, "true");
+-Djava.rmi.server.hostname=localhost</code></pre> </div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="_upgrading_camel_3_2_to_3_3"><a class="anchor" href="#_upgrading_camel_3_2_to_3_3"></a>Upgrading Camel 3.2 to 3.3</h2> <div class="sectionbody"> <div class="sect2"> <h3 id="_api_changes_3"><a class="anchor" href="#_api_changes_3"></a>API changes</h3> <div class="paragraph"> <p>The dump model classes in package <code>org.apache.camel.support.dump</code> has been removed as they were not in use by Camel.</p> </div> <div class="paragraph"> <p>In relation to the dump model classes removal, in camel-karaf the following commands were removed: <code>context-info</code>, <code>route-info</code>, <code>route-profile</code> and <code>route-step</code>.</p> </div> <div class="paragraph"> <p>The <code>configure(CamelContext)</code> method of the <code>`org.apache.camel.main.MainListener</code> has been deprecated and will be removed in a future release. The <code>afterConfigure(BaseMainSupport)</code> method should be used instead.</p> </div> </div> <div class="sect2"> <h3 id="_camel_jackson"><a class="anchor" href="#_camel_jackson"></a>camel-jackson</h3> <div class="paragraph"> <p>The dependency on <code>jackson-module-jaxb-annotations</code> and the option <code>enableJaxbAnnotationModule</code> have been removed. To enable support for JAXB annotations, users have to:</p> </div> <div class="ulist"> <ul> <li> <p>explicit add <code>jackson-module-jaxb-annotations</code></p> </li> <li> <p>configure the <code>JacksonDataFormat</code> and/or the <code>JacksonTypeConverters</code> module classes, example:</p> <div class="listingblock"> <div class="title">JacksonDataFormat</div> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">JacksonDataFormat formatPojo = new JacksonDataFormat(TestJAXBPojo.class);
+formatPojo.setModuleClassNames(JaxbAnnotationModule.class.getName());</code></pre> </div> </div> <div class="listingblock"> <div class="title">JacksonTypeConverters</div> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">context.getGlobalOptions().put(JacksonConstants.ENABLE_TYPE_CONVERTER, "true");
 context.getGlobalOptions().put(JacksonConstants.TYPE_CONVERTER_TO_POJO, "true");
-context.getGlobalOptions().put(JacksonConstants.TYPE_CONVERTER_MODULE_CLASS_NAMES, JaxbAnnotationModule.class.getName());
-----
-
-this change affects also the Java DSL and as consequence the `enableJaxbAnnotationModule` option for the Json
-DataFormat definition has been removed.
-
-=== Camel-Karaf
-
-- In Camel 3.3.0, camel-undertow is not supported in OSGi anymore.
-- In Camel 3.3.0, camel-jgroups and camel-jgroups-raft are not supported in OSGi anymore.
-- In Camel 3.3.0, camel-infinispan is not supported in OSGi anymore.</code></pre> </div> </div> </div> </div> </article> </main> </div> <div class="footer-tools"> <a href="#top" title="Reach the top of the page">Back to top</a> </div> <footer> <div class="footer"> <figure class="logo"> <img src="../../_/img/logo-d.svg" class="logo-small mt-60" alt="Apache Camel Logo" aria-label="white silhouette of a camel in front of a sand dune"> </figure> <dl> <dt>Overview</dt> <dd><a href="../../blog/">Blog</a></dd> <dd><a href="../../components/latest/">Components</a></dd> <dd><a href="../../download/">Download</a></dd> <dd><a href="../../manual/latest/getting-started.html">Getting started</a></dd> <dd><a href="../../manual/latest/faq/index.html">FAQ</a></dd> </dl> <dl> <dt>Community</dt> <dd><a href="https://www.apache.org/foundation/policies/conduct">Code of conduct</a> </dd><dd><a href="../../community/support/">Support</a></dd> <dd><a href="../../manual/latest/contributing.html">Contributing</a></dd> <dd><a href="../../community/user-stories/">User stories</a></dd> <dd><a href="../../community/articles/">Articles</a></dd> <dd><a href="../../community/books/">Books</a></dd> <dd><a href="../../community/team/">Team</a></dd> </dl> <dl> <dt>About</dt> <dd><a href="../../acknowledgments/">Acknowledgments</a> </dd><dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/events/current-event.html" title="Apache Events">Apache Events</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/licenses/" title="License">License</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/security/" title="Security">Security</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/sponsorship.html" title="Sponsorship">Sponsorship</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/thanks.html" title="Thanks">Thanks</a></dd> </dl> <p> &copy; 2004-2020 The <a href="https://apache.org">Apache Software Foundation</a>.<br> Apache Camel, Camel, Apache, the Apache feather logo, and the Apache Camel project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners. </p> </div> </footer> <script src="../../_/js/vendor/algoliasearch-1c1c4d8ac7.js"></script> <script src="../../_/js/site-50cbbf152a.js"></script> <script async src="../../_/js/vendor/highlight-bcd7ee9b3e.js"></script> <script async src="../../_/js/vendor/svg4everybody-195d47ce7d.js"></script> <script type="application/ld+json"> {
+context.getGlobalOptions().put(JacksonConstants.TYPE_CONVERTER_MODULE_CLASS_NAMES, JaxbAnnotationModule.class.getName());</code></pre> </div> </div> </li> </ul> </div> <div class="paragraph"> <p>this change affects also the Java DSL and as consequence the <code>enableJaxbAnnotationModule</code> option for the Json DataFormat definition has been removed.</p> </div> </div> <div class="sect2"> <h3 id="_camel_karaf"><a class="anchor" href="#_camel_karaf"></a>Camel-Karaf</h3> <div class="ulist"> <ul> <li> <p>In Camel 3.3.0, camel-undertow is not supported in OSGi anymore.</p> </li> <li> <p>In Camel 3.3.0, camel-jgroups and camel-jgroups-raft are not supported in OSGi anymore.</p> </li> <li> <p>In Camel 3.3.0, camel-infinispan is not supported in OSGi anymore.</p> </li> </ul> </div> </div> </div> </div> </article> </main> </div> <div class="footer-tools"> <a href="#top" title="Reach the top of the page">Back to top</a> </div> <footer> <div class="footer"> <figure class="logo"> <img src="../../_/img/logo-d.svg" class="logo-small mt-60" alt="Apache Camel Logo" aria-label="white silhouette of a camel in front of a sand dune"> </figure> <dl> <dt>Overview</dt> <dd><a href="../../blog/">Blog</a></dd> <dd><a href="../../components/latest/">Components</a></dd> <dd><a href="../../download/">Download</a></dd> <dd><a href="../../manual/latest/getting-started.html">Getting started</a></dd> <dd><a href="../../manual/latest/faq/index.html">FAQ</a></dd> </dl> <dl> <dt>Community</dt> <dd><a href="https://www.apache.org/foundation/policies/conduct">Code of conduct</a> </dd><dd><a href="../../community/support/">Support</a></dd> <dd><a href="../../manual/latest/contributing.html">Contributing</a></dd> <dd><a href="../../community/user-stories/">User stories</a></dd> <dd><a href="../../community/articles/">Articles</a></dd> <dd><a href="../../community/books/">Books</a></dd> <dd><a href="../../community/team/">Team</a></dd> </dl> <dl> <dt>About</dt> <dd><a href="../../acknowledgments/">Acknowledgments</a> </dd><dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/events/current-event.html" title="Apache Events">Apache Events</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/licenses/" title="License">License</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/security/" title="Security">Security</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/sponsorship.html" title="Sponsorship">Sponsorship</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/thanks.html" title="Thanks">Thanks</a></dd> </dl> <p> &copy; 2004-2020 The <a href="https://apache.org">Apache Software Foundation</a>.<br> Apache Camel, Camel, Apache, the Apache feather logo, and the Apache Camel project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners. </p> </div> </footer> <script src="../../_/js/vendor/algoliasearch-1c1c4d8ac7.js"></script> <script src="../../_/js/site-50cbbf152a.js"></script> <script async src="../../_/js/vendor/highlight-bcd7ee9b3e.js"></script> <script async src="../../_/js/vendor/svg4everybody-195d47ce7d.js"></script> <script type="application/ld+json"> {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "Apache Camel",
