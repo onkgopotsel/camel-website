@@ -995,7 +995,7 @@ This release supports only Spring Boot 1.5.x. Support for Spring Boot 2.0.x is c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://camel.apache.org/community/articles/</guid>
-      <description>Camel Videos (Lang: English, French, Norwegian, Russian, Spannish)  How to quickly run 100 Camels with Apache Camel, Quarkus and GraalVM - A 10 minute video from April 2020 where Claus shows how to run Camel in both JVM and Native compiled mode and compare startup speed and memory usage. Best Practices for Middleware and Integration Architecture Modernization with Apache Camel - A 30 minute video from March 2020 where Claus presents Camel 3 and focused on Camel K and Camel Quarkus.</description>
+      <description>Camel Videos (Lang: English, French, Norwegian, Russian, Spannish)  4K–Kubernetes with Knative, Kafka, and Kamel - DevNation Tech Talk from April 2020 where Kamesh Sampath celebrats his book launch of the Knative Cookbook, and runs a fast-paced live code demonstration of the coolest Knative-based techniques that we can imagine that include Kafka and Kamel. How to quickly run 100 Camels with Apache Camel, Quarkus and GraalVM - A 10 minute video from April 2020 where Claus shows how to run Camel in both JVM and Native compiled mode and compare startup speed and memory usage.</description>
     </item>
     
     <item>
