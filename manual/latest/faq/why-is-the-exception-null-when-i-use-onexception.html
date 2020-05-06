@@ -6,7 +6,7 @@
       // why cause exception is null ???
     }
   })
-.end()</code></pre> </div> </div> <div class="paragraph"> <p>Then make notice that because you use <code>handled(true)</code>, then the caused exception is no longer available from <code>exchange.getException()</code>, because we told Camel that we will handle the exception.</p> </div> <div class="paragraph"> <p>Instead you can access the caused exception from a property on the exchange with the key <code>Exchange.EXCEPTION_CAUGHT</code>, as shown below:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">.onException(Exception.class).handled(true)
+.end()</code></pre> </div> </div> <div class="paragraph"> <p>Then make notice the caused exception is no longer available from <code>exchange.getException()</code>, because the message is in the onException block.</p> </div> <div class="paragraph"> <p>Instead you can access the caused exception from a property on the exchange with the key <code>Exchange.EXCEPTION_CAUGHT</code>, as shown below:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">.onException(Exception.class).handled(true)
   .process(new Processor() {
     @Override
     public void process(Exchange exchange) throws Exception {
