@@ -2,18 +2,28 @@
     .process { e -&gt; e.getIn().body = "Hello Camel K!" }
     .to("log:info")</code></pre> </div> </div> <div class="paragraph"> <p>You can run it with the standard command:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code>kamel run example.kts</code></pre> </div> </div> <div class="paragraph"> <p>Camel K extends the Camel Java DSL making it easier to configure the context in which the integration runs using the top level <em>context</em> block</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">context {
   // configure the context here
-}</code></pre> </div> </div> <div class="paragraph"> <p>At the moment the enhanced DSL provides a way to bind items to the registry, to configure the components the context creates and some improvements over the REST DSL.</p> </div> </div> </div> <div class="sect1"> <h2 id="_registry_configuration"><a class="anchor" href="#_registry_configuration"></a>Registry Configuration</h2> <div class="sectionbody"> <div class="paragraph"> <p>The registry is accessible using the <em>registry</em> block inside the <em>context</em> one:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">context {
-    registry {
-        bind("my-cache", Caffeine.newBuilder().build()) <i class="conum" data-value="1"></i><b>(1)</b>
-        bind("my-processor", processor { <i class="conum" data-value="2"></i><b>(2)</b>
-            e -&gt; e.getIn().body = "Hello"
-        })
-        bind("my-predicate", predicate { <i class="conum" data-value="3"></i><b>(3)</b>
-            e -&gt; e.getIn().body != null
-        })
+}</code></pre> </div> </div> <div class="paragraph"> <p>At the moment the enhanced DSL provides a way to bind items to the registry, to configure the components the context creates and some improvements over the REST DSL.</p> </div> </div> </div> <div class="sect1"> <h2 id="_beans_dsl"><a class="anchor" href="#_beans_dsl"></a>Beans DSL</h2> <div class="sectionbody"> <div class="paragraph"> <p>To register beans as you would do with a Camel registry you can use the Beans DSL</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">beans {
+    bean&lt;org.apache.commons.dbcp2.BasicDataSource&gt;("dataSource") {
+        driverClassName = "org.h2.Driver"
+        url = "jdbc:h2:mem:camel"
+        username = "sa"
+        password = ""
     }
-}</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>bind a simple bean to the context</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>define a custom processor to be used later in the routes by ref</td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>define a custom predicate to be used later in the routes by ref</td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_components_configuration"><a class="anchor" href="#_components_configuration"></a>Components Configuration</h2> <div class="sectionbody"> <div class="paragraph"> <p>Components can be configured within the <em>components</em> block inside the <em>context</em> one:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">context {
+
+    bean("filterStrategy") {
+        org.apache.camel.support.DefaultHeaderFilterStrategy()
+    }
+
+    processor("myProcessor") {
+        it.getIn().body = "Hello"
+    }
+
+    predicate("myPredicate") {
+        false
+    }
+}</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>bind a simple bean to the context</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>define a custom processor to be used later in the routes by ref</td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>define a custom predicate to be used later in the routes by ref</td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_components_configuration"><a class="anchor" href="#_components_configuration"></a>Components Configuration</h2> <div class="sectionbody"> <div class="paragraph"> <p>Components can be configured within the <em>components</em> block inside the <em>camel</em> one:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">camel {
     components {
+
         component&lt;SedaComponent&gt;("seda") { <i class="conum" data-value="1"></i><b>(1)</b>
             queueSize = 1234
             concurrentConsumers = 12
@@ -25,10 +35,10 @@
         }
 
         component&lt;LogComponent&gt;("log") { <i class="conum" data-value="3"></i><b>(3)</b>
-           setExchangeFormatter {
-               e: Exchange -&gt; "" + e.getIn().body
-           }
-       }
+            setExchangeFormatter {
+                e: Exchange -&gt; "" + e.getIn().body
+            }
+        }
     }
 }</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>configure the properties of a component whit type <em>SedaComponent</em> and name <em>seda</em></td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>configure the properties of a component with type SedaComponent and name <em>mySeda</em>, note that as <em>mySeda</em> does not represent a valid component scheme, a new component of the required type will be instantiated.</td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>configure the properties of the component whit name <em>log</em></td> </tr> </table></div> </div> <div class="admonitionblock note"> <div class="table-wrapper"><table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>As for Groovy, you can provide your custom extension to the DSL</p> </div> </td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_rest_endpoints"><a class="anchor" href="#_rest_endpoints"></a>Rest Endpoints</h2> <div class="sectionbody"> <div class="paragraph"> <p>Integrations&#8217;s REST endpoints can be configured using the top level <em>rest</em> block:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">rest {
     configuration { <i class="conum" data-value="1"></i><b>(1)</b>
@@ -37,7 +47,11 @@
     }
 
     path("/my/path") { <i class="conum" data-value="2"></i><b>(2)</b>
-        // standard Rest DSL
+        get("/get") {
+            consumes("application/json")
+            produces("application/json")
+            to("direct:get")
+        }
     }
 }</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>Configure the rest engine</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>Configure the rest endpoint for the base path '/my/path'</td> </tr> </table></div> </div> </div> </div> </article> </main> </div> <div class="footer-tools"> <a href="#top" title="Reach the top of the page">Back to top</a> </div> <footer> <div class="footer"> <figure class="logo"> <img src="../../../_/img/logo-d.svg" class="logo-small mt-60" alt="Apache Camel Logo" aria-label="white silhouette of a camel in front of a sand dune"> </figure> <dl> <dt>Overview</dt> <dd><a href="../../../blog/">Blog</a></dd> <dd><a href="../../../components/latest/">Components</a></dd> <dd><a href="../../../download/">Download</a></dd> <dd><a href="../../../manual/latest/getting-started.html">Getting started</a></dd> <dd><a href="../../../manual/latest/faq/index.html">FAQ</a></dd> </dl> <dl> <dt>Community</dt> <dd><a href="https://www.apache.org/foundation/policies/conduct">Code of conduct</a> </dd><dd><a href="../../../community/support/">Support</a></dd> <dd><a href="../../../manual/latest/contributing.html">Contributing</a></dd> <dd><a href="../../../community/user-stories/">User stories</a></dd> <dd><a href="../../../community/articles/">Articles</a></dd> <dd><a href="../../../community/books/">Books</a></dd> <dd><a href="../../../community/team/">Team</a></dd> </dl> <dl> <dt>About</dt> <dd><a href="../../../acknowledgments/">Acknowledgments</a> </dd><dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/events/current-event.html" title="Apache Events">Apache Events</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/licenses/" title="License">License</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/security/" title="Security">Security</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/sponsorship.html" title="Sponsorship">Sponsorship</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/thanks.html" title="Thanks">Thanks</a></dd> </dl> <p> &copy; 2004-2020 The <a href="https://apache.org">Apache Software Foundation</a>.<br> Apache Camel, Camel, Apache, the Apache feather logo, and the Apache Camel project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners. </p> </div> </footer> <script src="../../../_/js/vendor/algoliasearch-1c1c4d8ac7.js"></script> <script src="../../../_/js/site-50cbbf152a.js"></script> <script async src="../../../_/js/vendor/highlight-bcd7ee9b3e.js"></script> <script async src="../../../_/js/vendor/svg4everybody-195d47ce7d.js"></script> <script type="application/ld+json"> {
   "@context": "http://schema.org",

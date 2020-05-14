@@ -6,10 +6,37 @@
     <description>Recent content in Home on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 14:47:42 +0200</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Camel Security Advisory - CVE-2020-11971</title>
+      <link>https://camel.apache.org/security/CVE-2020-11971.html</link>
+      <pubDate>Thu, 14 May 2020 14:47:42 +0200</pubDate>
+      
+      <guid>https://camel.apache.org/security/CVE-2020-11971.html</guid>
+      <description>Apache Camel JMX Rebind Flaw Vulnerability</description>
+    </item>
+    
+    <item>
+      <title>Apache Camel Security Advisory - CVE-2020-11972</title>
+      <link>https://camel.apache.org/security/CVE-2020-11972.html</link>
+      <pubDate>Thu, 14 May 2020 14:47:42 +0200</pubDate>
+      
+      <guid>https://camel.apache.org/security/CVE-2020-11972.html</guid>
+      <description>Apache Camel RabbitMQ enables Java deserialization by default</description>
+    </item>
+    
+    <item>
+      <title>Apache Camel Security Advisory - CVE-2020-11973</title>
+      <link>https://camel.apache.org/security/CVE-2020-11973.html</link>
+      <pubDate>Thu, 14 May 2020 14:47:42 +0200</pubDate>
+      
+      <guid>https://camel.apache.org/security/CVE-2020-11973.html</guid>
+      <description>Apache Camel Netty enables Java deserialization by default</description>
+    </item>
     
     <item>
       <title>CDC with Camel and Debezium</title>
