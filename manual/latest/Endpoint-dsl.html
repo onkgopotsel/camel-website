@@ -24,7 +24,25 @@ context.createFluentProducerTemplate()
     .send();</code></pre> </div> </div> <div class="paragraph"> <p>To use the endpoint-dsl with kafka you need to static import <code>kafka</code> from the class: <code>org.apache.camel.builder.endpoint.StaticEndpointBuilders</code> which has all the Camel components.</p> </div> <div class="paragraph"> <p>An endpoint can also be created in Java code via the endpoint-dsl as shown:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.paho;
 
 Endpoint mqtt = paho("sensor").clientId("myClient").userName("scott").password("tiger")
-    .resolve(context);</code></pre> </div> </div> <div class="paragraph"> <p>You can then set all the options via the type-safe DSL and then the endpoint can be resolved (created) by calling <code>resolve</code> with <code>CamelContext</code> as parameter.</p> </div> </div> </div> <div class="sect1"> <h2 id="_how_to_use"><a class="anchor" href="#_how_to_use"></a>How to use</h2> <div class="sectionbody"> <div class="paragraph"> <p>The DSL can be accessed in several ways, but the main one is to switch to using an <code>EndpointRouteBuilder</code> instead of the usual <code>RouteBuilder</code>. It provides access to all endpoint builders which are defined through inheritance on the <code>org.apache.camel.builder.endpoint.EndpointRouteBuilder</code>.</p> </div> <div class="paragraph"> <p>Maven users will need to add the following dependency to their <code>pom.xml</code> for this component:</p> </div> <div class="listingblock"> <div class="title">pom.xml</div> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    .resolve(context);</code></pre> </div> </div> <div class="paragraph"> <p>You can then set all the options via the type-safe DSL and then the endpoint can be resolved (created) by calling <code>resolve</code> with <code>CamelContext</code> as parameter.</p> </div> <div class="paragraph"> <p>If you want to inject an endpoint into your POJO or <code>RouteBuilder</code> class using endpoint-dsl, then this can be done similar to the previous example, but with one important difference:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.apache.camel.BindToRegistry;
+import org.apache.camel.EndpointInject;
+import org.apache.camel.Produce;
+import org.apache.camel.builder.EndpointProducerBuilder;
+import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.paho;
+
+@BindToRegistry
+public class MyPojo {
+
+    @Produce
+    private FluentProducerTemplate producer;
+
+    private final EndpointProducerBuilder mqtt = paho("sensor").clientId("myClient").userName("scott").password("tiger");
+
+    public void sendToSensor(String data) {
+        producer.withBody(data).to(mqtt).send();
+    }
+
+}</code></pre> </div> </div> <div class="paragraph"> <p>The <code>MyPojo</code> is a class that with standalone Camel can be discovered and registered with the <code>@BindToRegistry</code> annotation. If you use Spring Boot, CDI, or Quarkus etc then you should use their kind of annotations for this.</p> </div> <div class="paragraph"> <p>That&#8217;s not the point of this example, it is the Endpoint DSL to configure the MQTT endpoint (camel-paho). The endpoint is configured the same way as before by the type-safe endpoint-dsl by static importing the <code>paho</code>, and then use its fluent builder methods to configure. Notice how the returned type is <code>EndpointProducerBuilder</code>. That type is not an <code>Endpoint</code> instance as its not resolved (eg its only a builder for an endpoint). This means that the builder can be code and compiled before <code>CamelContext</code> is created and started.</p> </div> <div class="paragraph"> <p>At runtime we want to use this endpoint to send messages to MQTT server; this is done in the <code>sendToSensor</code> method where we are using <code>FluentProducerTemplate</code> that is capable of using the <code>EndpointProducerBuilder</code> as the endpoint in shown with: <code>.to(mqtt)</code>.</p> </div> </div> </div> <div class="sect1"> <h2 id="_how_to_use"><a class="anchor" href="#_how_to_use"></a>How to use</h2> <div class="sectionbody"> <div class="paragraph"> <p>The DSL can be accessed in several ways, but the main one is to switch to using an <code>EndpointRouteBuilder</code> instead of the usual <code>RouteBuilder</code>. It provides access to all endpoint builders which are defined through inheritance on the <code>org.apache.camel.builder.endpoint.EndpointRouteBuilder</code>.</p> </div> <div class="paragraph"> <p>Maven users will need to add the following dependency to their <code>pom.xml</code> for this component:</p> </div> <div class="listingblock"> <div class="title">pom.xml</div> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.apache.camel&lt;/groupId&gt;
     &lt;artifactId&gt;camel-endpointdsl&lt;/artifactId&gt;
     &lt;version&gt;x.x.x&lt;/version&gt;
