@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://camel.apache.org/releases/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/release-3-3-0.html</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/releases/release-3.3.0/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/categories/Releases/</loc>
+    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/security/CVE-2020-11971.html</loc>
     <lastmod>2020-05-14T14:47:42+02:00</lastmod>
   </url>
@@ -23,16 +53,6 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/</loc>
-    <lastmod>2020-05-14T14:47:42+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/blog/</loc>
-    <lastmod>2020-05-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://camel.apache.org/blog/CdcWithCamelAndDebezium/</loc>
     <lastmod>2020-05-04T00:00:00+00:00</lastmod>
   </url>
@@ -48,18 +68,8 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/categories/Releases/</loc>
-    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://camel.apache.org/blog/Camel-Kafka-connector-release-0.1.0/</loc>
     <lastmod>2020-04-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/releases/</loc>
-    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
