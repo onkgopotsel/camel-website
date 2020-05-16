@@ -3,25 +3,25 @@
     .to("log:info")</code></pre> </div> </div> <div class="paragraph"> <p>You can run it with the standard command:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code>kamel run example.kts</code></pre> </div> </div> <div class="paragraph"> <p>Camel K extends the Camel Java DSL making it easier to configure the context in which the integration runs using the top level <em>context</em> block</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">context {
   // configure the context here
 }</code></pre> </div> </div> <div class="paragraph"> <p>At the moment the enhanced DSL provides a way to bind items to the registry, to configure the components the context creates and some improvements over the REST DSL.</p> </div> </div> </div> <div class="sect1"> <h2 id="_beans_dsl"><a class="anchor" href="#_beans_dsl"></a>Beans DSL</h2> <div class="sectionbody"> <div class="paragraph"> <p>To register beans as you would do with a Camel registry you can use the Beans DSL</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">beans {
-    bean&lt;org.apache.commons.dbcp2.BasicDataSource&gt;("dataSource") {
+    bean&lt;org.apache.commons.dbcp2.BasicDataSource&gt;("dataSource") { <i class="conum" data-value="1"></i><b>(1)</b>
         driverClassName = "org.h2.Driver"
         url = "jdbc:h2:mem:camel"
         username = "sa"
         password = ""
     }
 
-    bean("filterStrategy") {
+    bean("filterStrategy") { <i class="conum" data-value="1"></i><b>(1)</b>
         org.apache.camel.support.DefaultHeaderFilterStrategy()
     }
 
-    processor("myProcessor") {
+    processor("myProcessor") { <i class="conum" data-value="2"></i><b>(2)</b>
         it.getIn().body = "Hello"
     }
 
-    predicate("myPredicate") {
+    predicate("myPredicate") { <i class="conum" data-value="3"></i><b>(3)</b>
         false
     }
-}</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>bind a simple bean to the context</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>define a custom processor to be used later in the routes by ref</td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>define a custom predicate to be used later in the routes by ref</td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_components_configuration"><a class="anchor" href="#_components_configuration"></a>Components Configuration</h2> <div class="sectionbody"> <div class="paragraph"> <p>Components can be configured within the <em>components</em> block inside the <em>camel</em> one:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">camel {
+}</code></pre> </div> </div> <div class="colist arabic"> <div class="table-wrapper"><table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>bind beans to the context for the database and filter strategy</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>define a custom processor to be used later in the routes by ref</td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>define a custom predicate to be used later in the routes by ref</td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_components_configuration"><a class="anchor" href="#_components_configuration"></a>Components Configuration</h2> <div class="sectionbody"> <div class="paragraph"> <p>Components can be configured within the <em>components</em> block inside the <em>camel</em> one:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">camel {
     components {
 
         component&lt;SedaComponent&gt;("seda") { <i class="conum" data-value="1"></i><b>(1)</b>

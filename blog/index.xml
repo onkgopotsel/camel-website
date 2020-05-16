@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Camel 3.3 What&#39;s New</title>
+      <link>https://camel.apache.org/blog/Camel33-Whatsnew/</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/Camel33-Whatsnew/</guid>
+      <description>A few days ago Apache Camel 3.3 was released. This is a continuation of the work we are doing on Camel leading up to the first long term support release (LTS) that will be the next release v3.4.
+In case you have missed this, the release model in Camel 3.x is following the principe of LTS and non-LTS releases (like Java JDKs). For more details see this blog post.</description>
+    </item>
     
     <item>
       <title>RELEASE 3.3.0</title>
