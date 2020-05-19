@@ -4,7 +4,7 @@ camel.health.check.routes.enabled = true
 # Configure default thresholds
 camel.health.check.routes.thresholds.exchanges-failed = 10
 
-# Configure a different exchanges-failed  threshold for the route bar
+# Configure a different exchanges-failed threshold for the route bar
 camel.health.check.routes.threshold[bar].exchanges-failed = 20
 
 # Configure different thresholds for the route slow without inherit global
@@ -61,7 +61,7 @@ camel.health.check.routes.threshold[slow].last-processing-time.failures = 5</cod
       ...
   &lt;/camelContext&gt;
 
-&lt;/beans&gt;</code></pre> </div> </div> </li> </ul> </div> </div> </div> <div class="sect1"> <h2 id="_writing_a_custom_check"><a class="anchor" href="#_writing_a_custom_check"></a>Writing a custom check:</h2> <div class="sectionbody"> <div class="paragraph"> <p>As of version 2.20.0, there are a limited number of health checks provided by Camel out of the box, so you may need to write your own check which you can do by implementing the <em>HealthCheck</em> interface or by extending <em>AbstractHealthCheck</em> which provides some usueful methods:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public final class MyHealthCheck extends AbstractHealthCheck {
+&lt;/beans&gt;</code></pre> </div> </div> </li> </ul> </div> </div> </div> <div class="sect1"> <h2 id="_writing_a_custom_check"><a class="anchor" href="#_writing_a_custom_check"></a>Writing a custom check:</h2> <div class="sectionbody"> <div class="paragraph"> <p>As of version 2.20, there are a limited number of health checks provided by Camel out of the box, so you may need to write your own check which you can do by implementing the <em>HealthCheck</em> interface or by extending <em>AbstractHealthCheck</em> which provides some usueful methods:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public final class MyHealthCheck extends AbstractHealthCheck {
     public ContextHealthCheck() {
         super("camel", "my-check");
 

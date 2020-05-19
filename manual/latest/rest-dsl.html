@@ -95,7 +95,11 @@ restConfiguration().component("netty-http").host("localhost").port(portNum).bind
 // use the rest DSL to define the rest services
 rest("/users/")
     .post().type(UserPojo.class).outType(CountryPojo.class)
-        .to("direct:newUser");</code></pre> </div> </div> <div class="paragraph"> <p>To specify input and/or output using an array, append <code>[]</code> to the end of the canonical class name as shown in the following Java DSL:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// configure to use netty-http on localhost with the given port
+        .to("direct:newUser");</code></pre> </div> </div> </div> </div> <div class="sect1"> <h2 id="_and_in_xml_dsl_2"><a class="anchor" href="#_and_in_xml_dsl_2"></a>And in XML DSL</h2> <div class="sectionbody"> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;rest uri="/users/"&gt;
+  &lt;post type="UserPojo" outType="CountryPojo"&gt;
+    &lt;to uri="direct:newUser"/&gt;
+  &lt;/post&gt;
+&lt;rest&gt;</code></pre> </div> </div> <div class="paragraph"> <p>To specify input and/or output using an array, append <code>[]</code> to the end of the canonical class name as shown in the following Java DSL:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// configure to use netty-http on localhost with the given port
 // and enable auto binding mode
 restConfiguration().component("netty-http").host("localhost").port(portNum).bindingMode(RestBindingMode.auto);
 
