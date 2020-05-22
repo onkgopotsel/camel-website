@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://camel.apache.org/community/articles/</guid>
-      <description>Camel Videos (Lang: English, French, Norwegian, Russian, Spannish)  4K–Kubernetes with Knative, Kafka, and Kamel - DevNation Tech Talk from April 2020 where Kamesh Sampath celebrats his book launch of the Knative Cookbook, and runs a fast-paced live code demonstration of the coolest Knative-based techniques that we can imagine that include Kafka and Kamel. How to quickly run 100 Camels with Apache Camel, Quarkus and GraalVM - A 10 minute video from April 2020 where Claus shows how to run Camel in both JVM and Native compiled mode and compare startup speed and memory usage.</description>
+      <description>Camel Videos (Lang: English, French, Norwegian, Russian, Spannish)  SouJava May 2020: Apache Camel 3 - The next generation of enterprise integration - SouJava talk from May 2020 where Claus Ibsen and Andrea Cosentino presents an hour long session about Apache Camel, Camel v3 and goes more in depth with Camel K, Camel Quarkus and Camel Kafka Connector. At the end of the talk there is a 30 min additional QA session.</description>
     </item>
     
     <item>
