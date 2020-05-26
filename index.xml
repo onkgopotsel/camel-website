@@ -1053,7 +1053,7 @@ This release supports only Spring Boot 1.5.x. Support for Spring Boot 2.0.x is c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://camel.apache.org/community/articles/</guid>
-      <description>Camel Videos (Lang: English, French, Norwegian, Russian, Spannish)  Camel K serverless Integration auf Kubernetes (German) - 25 min video by Perdic8 team in Germany who introduces CamelK and show live demo on Windows how to install, run and use Camel K with their impressions. SouJava May 2020: Apache Camel 3 - The next generation of enterprise integration - SouJava talk from May 2020 where Claus Ibsen and Andrea Cosentino presents an hour long session about Apache Camel, Camel v3 and goes more in depth with Camel K, Camel Quarkus and Camel Kafka Connector.</description>
+      <description>Camel Videos  Camel K serverless Integration auf Kubernetes (German) - 25 min video by Perdic8 team in Germany who introduces CamelK and show live demo on Windows how to install, run and use Camel K with their impressions. SouJava May 2020: Apache Camel 3 - The next generation of enterprise integration - SouJava talk from May 2020 where Claus Ibsen and Andrea Cosentino presents an hour long session about Apache Camel, Camel v3 and goes more in depth with Camel K, Camel Quarkus and Camel Kafka Connector.</description>
     </item>
     
     <item>
