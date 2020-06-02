@@ -6,10 +6,22 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Camel Quarkus 1.0.0-CR2 Released</title>
+      <link>https://camel.apache.org/blog/2020/06/camel-quarkus-release-1.0.0-CR2/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/06/camel-quarkus-release-1.0.0-CR2/</guid>
+      <description>We are pleased to announce the release 1.0.0-CR2 of Camel Quarkus. Camel Quarkus brings the outstanding integration capabilities of Apache Camel to Quarkus - the toolkit for writing subatomically small and supersonically fast Java, Kotlin and Scala applications.
+So what is new in Camel Quarkus 1.0.0-CR2?
+New bits While we do not have any new extensions this time, the following extensions were promoted from JVM-only to JVM+native:
+ REST OpenApi Avro data format MongoDB GridFS Debezium PostgreSQL Debezium MySQL  All supported bits can be seen in the List of Camel Quarkus extensions.</description>
+    </item>
     
     <item>
       <title>Apache Camel 3.3 What&#39;s New</title>
