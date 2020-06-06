@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://camel.apache.org/community/articles/</guid>
-      <description>Camel Videos  Camel K serverless Integration auf Kubernetes (German) - 25 min video by Perdic8 team in Germany who introduces CamelK and show live demo on Windows how to install, run and use Camel K with their impressions. SouJava May 2020: Apache Camel 3 - The next generation of enterprise integration - SouJava talk from May 2020 where Claus Ibsen and Andrea Cosentino presents an hour long session about Apache Camel, Camel v3 and goes more in depth with Camel K, Camel Quarkus and Camel Kafka Connector.</description>
+      <description>Camel Videos  What’s new with Apache Camel 3? | DevNation Tech Talk - 35 min video from June 2020, by Claus and Andrea giving an overview of Camel 3, and focusing on the most exicing innovations with CamelK, Camel Quarkus and Camel Kafka Connector with 3 live demos. Camel K serverless Integration auf Kubernetes (German) - 25 min video by Perdic8 team in Germany who introduces CamelK and show live demo on Windows how to install, run and use Camel K with their impressions.</description>
     </item>
     
     <item>
