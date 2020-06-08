@@ -13,10 +13,10 @@
     
     <item>
       <title>CFP for ApacheCon North America 2020</title>
-      <link>https://camel.apache.org/blog/ApacheConNA-2020-CFP/</link>
+      <link>https://camel.apache.org/blog/2020/02/ApacheConNA-2020-CFP/</link>
       <pubDate>Mon, 24 Feb 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://camel.apache.org/blog/ApacheConNA-2020-CFP/</guid>
+      <guid>https://camel.apache.org/blog/2020/02/ApacheConNA-2020-CFP/</guid>
       <description>As previous year Apache Camel is part of ApacheCon 2020 in North America. This year the conference will be held at the Sheraton, in New Orleans, September 28th through October 2nd, 2020.
 The call for presentations for ApacheCon North America 2020 is now open and the wider Camel community members are encouraged to submit. Look for the Camel/Integration track when submitting.
 We&amp;rsquo;re most interested to see talks that offer a learning experience to the attendees, so talks that present new parts of the Camel ecosystem (Camel K, Camel Quarkus, Camel Kafka Connector), talks showing off lessons learned, use cases, and visions on where software integration is heading in the future.</description>
@@ -24,20 +24,20 @@ We&amp;rsquo;re most interested to see talks that offer a learning experience to
     
     <item>
       <title>Camel at FOSDEM 2020</title>
-      <link>https://camel.apache.org/blog/FOSDEM-2020/</link>
+      <link>https://camel.apache.org/blog/2020/01/FOSDEM-2020/</link>
       <pubDate>Wed, 08 Jan 2020 13:30:00 +0100</pubDate>
       
-      <guid>https://camel.apache.org/blog/FOSDEM-2020/</guid>
+      <guid>https://camel.apache.org/blog/2020/01/FOSDEM-2020/</guid>
       <description>What FOSDEM is free as in beer grassroots event for free software/open source communities to meet, share ideas and collaborate. You&amp;rsquo;ll find over 800 talks spread over 35 rooms of Université libre de Bruxelles campus over the first weekend of February. And building on last year&amp;rsquo;s well-received BoF session Camel is returning to FOSDEM.
 When FOSDEM 2020 is on 1st (from 9:30 to 19:00) and 2nd (from 9:00 to 18:00) of February.</description>
     </item>
     
     <item>
       <title>Camel at ApacheCon North America 2019</title>
-      <link>https://camel.apache.org/blog/ApacheConNA-2019/</link>
+      <link>https://camel.apache.org/blog/2019/09/ApacheConNA-2019/</link>
       <pubDate>Tue, 10 Sep 2019 16:45:32 +0200</pubDate>
       
-      <guid>https://camel.apache.org/blog/ApacheConNA-2019/</guid>
+      <guid>https://camel.apache.org/blog/2019/09/ApacheConNA-2019/</guid>
       <description>Apache Camel is part of ApacheCon 2019 in North America this year celebrating the 20th year anniversary of Apache Software Foundation.
 On the Integration track you will find out all about the state of Apache Camel from Claus Ibsen, Sami Adranly will present Camel based data integration platform at Uber called Medley Nicola Ferraro and Andrea Tarocchi will be talking about Camel K and Camel K with Knative, Bob Paulin will make the cloud integration friendly in Configuring Apache Camel for the Cloud and Michael Costello will talk about serverless integration with Camel.</description>
     </item>
