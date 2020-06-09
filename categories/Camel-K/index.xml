@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Camel K on Apache Camel</title>
+    <link>https://camel.apache.org/categories/Camel-K/</link>
+    <description>Recent content in Camel K on Apache Camel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jun 2020 17:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://camel.apache.org/categories/Camel-K/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Camel K 1.0 is here</title>
+      <link>https://camel.apache.org/blog/2020/06/camel-k-release-1.0.0/</link>
+      <pubDate>Mon, 08 Jun 2020 17:00:00 +0200</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/06/camel-k-release-1.0.0/</guid>
+      <description>Apache Camel K has made a lot of progress since its inception and we&amp;rsquo;re now proud to announce the 1.0 release. We&amp;rsquo;ve been working hard in the past months to add more awesome features to Camel K, but also to improve stability and performance. This post contains a list of cool stuff that you&amp;rsquo;ll find in the 1.0 GA release.
+First of all, if you&amp;rsquo;re living under a rock and it&amp;rsquo;s the first time you hear about Camel K, you can read some introductory blog posts here (1 - introducing camel k, 2 - camel k on knative) or look at the Apache Camel website that contains a Camel K section with a lot of material that is automatically generated from the Github repository.</description>
+    </item>
+    
+  </channel>
+</rss>

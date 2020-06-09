@@ -4,7 +4,27 @@
   
   <url>
     <loc>https://camel.apache.org/blog/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-08T17:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/categories/Camel-K/</loc>
+    <lastmod>2020-06-08T17:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/2020/06/camel-k-release-1.0.0/</loc>
+    <lastmod>2020-06-08T17:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/</loc>
+    <lastmod>2020-06-08T17:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/categories/Releases/</loc>
+    <lastmod>2020-06-08T17:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -14,16 +34,6 @@
   
   <url>
     <loc>https://camel.apache.org/blog/2020/06/camel-quarkus-release-1.0.0-CR2/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/categories/Releases/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
