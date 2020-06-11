@@ -35,7 +35,7 @@ public class SpringConsumerTemplateTest extends SpringRunWithTestSupport {
 
         // we consume the body from seda:start
         String body = consumer.receiveBody("seda:start", String.class);
-        assertEquals("Hello World", body);
+        assertEquals(body, "Hello World");
 
         // and then we send the body again to seda:foo so it will be routed to the mock
         // endpoint so our unit test can complete
