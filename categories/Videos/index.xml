@@ -6,10 +6,21 @@
     <description>Recent content in Videos on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/categories/Videos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What&#39;s new with Apache Camel 3 webinar</title>
+      <link>https://camel.apache.org/blog/2020/06/whatsnew-camel-3-webinar/</link>
+      <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/06/whatsnew-camel-3-webinar/</guid>
+      <description>Apache Camel is a leading open source integration framework that has been around for more than a decade.
+With the release of Apache Camel 3, the Camel family has been extended to include a full range of projects that are tailored to popular platforms including Spring Boot, Quarkus, Kafka, Kubernetes, and others; creating an ecosystem.
+Claus Ibsen and Andrea Cosentino presented What&amp;rsquo;s new in Camel 3, focusing on the most innovative Camel projects at the DevNation Tech Talk on June 5th.</description>
+    </item>
     
     <item>
       <title>How to quickly run 100 Camels with Apache Camel, Quarkus and GraalVM</title>
