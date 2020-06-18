@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Apache Camel 3.4 What&#39;s New</title>
+      <link>https://camel.apache.org/blog/2020/06/camel34-whatsnew/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/06/camel34-whatsnew/</guid>
+      <description>Apache Camel 3.4 is the first LTS (Long Term Support) release of Camel 3.
+This release will be actively supported with regular patch releases containing important bug and security fixes for 1-year.
+For more details about LTS vs non-LTS releases see this blog post.
+So what&amp;rsquo;s in this release? This release is mostly about robustness and bug fixes.
+We have also continued the work to make Camel more modular and lighter.</description>
+    </item>
+    
+    <item>
       <title>RELEASE 3.4.0</title>
       <link>https://camel.apache.org/blog/release-3-4-0.html</link>
       <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
