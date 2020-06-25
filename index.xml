@@ -1166,18 +1166,6 @@ https://fisheye6.atlassian.com/browse/camel-git  Checking out from git git clone
     
     <item>
       <title>Support</title>
-      <link>https://camel.apache.org/community/irc-room/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://camel.apache.org/community/irc-room/</guid>
-      <description>## IRC
-You can hang out on IRC in the #apache-camel room at freenode with other Apache Camel developers and users.
-Using an IRC client Here are the connection details.
-  server port room     irc.freenode.net 6667 #apache-camel    Gitter Room Apache Camel is also on Gitter in the apache/apache-camel room which you can access from a web browser.</description>
-    </item>
-    
-    <item>
-      <title>Support</title>
       <link>https://camel.apache.org/community/mailing-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
