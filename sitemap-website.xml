@@ -633,15 +633,11 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/acknowledgments/</loc>
-  </url>
-  
-  <url>
     <loc>https://camel.apache.org/docs/</loc>
   </url>
   
   <url>
-    <loc>https://camel.apache.org/projects/</loc>
+    <loc>https://camel.apache.org/acknowledgments/</loc>
   </url>
   
   <url>
