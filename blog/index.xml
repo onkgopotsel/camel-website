@@ -6,10 +6,21 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Camel at ApacheCon @Home 2020</title>
+      <link>https://camel.apache.org/blog/2020/07/ApacheCon-2020-at-home/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/07/ApacheCon-2020-at-home/</guid>
+      <description>We are pleased to announce that ApacheCon 2020 will be held online, September 29th through October 1st, 2020.
+If you wish to present at the event please submit your talk proposal for the Camel/Integration track when at ApacheCon 2020 website no later than Monday, July 13th by noon in the UTC timezone. Please do not wait for the last minute to submit.
+We are most interested to see talks that offer a learning experience to the attendees, so talks that present new parts of the Camel ecosystem (Camel K, Camel Quarkus, Camel Kafka Connector), talks showing off lessons learned, use cases, and visions on where software integration is heading in the future.</description>
+    </item>
     
     <item>
       <title>Apache Camel 3.4 What&#39;s New</title>

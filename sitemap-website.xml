@@ -3,22 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://camel.apache.org/blog/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/2020/07/ApacheCon-2020-at-home/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/categories/Events/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/blog/2020/06/camel34-whatsnew/</loc>
     <lastmod>2020-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://camel.apache.org/releases/</loc>
-    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/blog/</loc>
-    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/</loc>
     <lastmod>2020-06-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -209,11 +219,6 @@
   
   <url>
     <loc>https://camel.apache.org/blog/2020/02/ApacheConNA-2020-CFP/</loc>
-    <lastmod>2020-02-24T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/categories/Events/</loc>
     <lastmod>2020-02-24T12:00:00+00:00</lastmod>
   </url>
   
