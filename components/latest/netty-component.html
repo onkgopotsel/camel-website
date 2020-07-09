@@ -54,7 +54,7 @@ nettyComponent.setSslContextParameters(scp);</code></pre> </div> </div> <div id=
   &lt;/camel:sslContextParameters&gt;...
 ...
   &lt;to uri="netty:tcp://0.0.0.0:5150?sync=true&amp;ssl=true&amp;sslContextParameters=#sslContextParameters"/&gt;
-...</code></pre> </div> </div> <div class="paragraph"> <p>[[Netty-UsingBasicSSL/TLSconfigurationontheJettyComponent]] Using Basic SSL/TLS configuration on the Jetty Component</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Registry registry = context.getRegistry();
+...</code></pre> </div> </div> <div id="Netty-UsingBasicSSLTLSconfigurationontheJettyComponent" class="paragraph"> <p>Using Basic SSL/TLS configuration on the Jetty Component</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Registry registry = context.getRegistry();
 registry.bind("password", "changeit");
 registry.bind("ksf", new File("src/test/resources/keystore.jks"));
 registry.bind("tsf", new File("src/test/resources/keystore.jks"));
