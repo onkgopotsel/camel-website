@@ -21,5 +21,15 @@
  Netlify kindly provides pull request builds, checks and previews for this website.</description>
     </item>
     
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://camel.apache.org/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/privacy-policy/</guid>
+      <description>Apache Camel Privacy Policy The Apache Software Foundation (ASF) is an open source project organized under the auspices of a public benefit corporation. Our challenges and goals are large. For that reason, we have a very permissive (non) privacy policy that mirrors our public mission.
+Please assume that everything you contribute intentionally to The ASF, or any project at The ASF, is public. This includes emails on public lists, wikis, online discussions of all sorts, and software or documentation that you post to this website or our revision control repositories.</description>
+    </item>
+    
   </channel>
 </rss>
