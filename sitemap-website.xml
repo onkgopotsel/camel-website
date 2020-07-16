@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://camel.apache.org/releases/</loc>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/blog/</loc>
-    <lastmod>2020-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/</loc>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/release-3-4-1.html</loc>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/releases/release-3.4.1/</loc>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/categories/Releases/</loc>
+    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -14,11 +39,6 @@
   
   <url>
     <loc>https://camel.apache.org/blog/2020/07/command-line-utility-with-camel-quarkus/</loc>
-    <lastmod>2020-07-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/</loc>
     <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,11 +63,6 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/categories/Releases/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://camel.apache.org/blog/2020/07/ApacheCon-2020-at-home/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
   </url>
@@ -59,11 +74,6 @@
   
   <url>
     <loc>https://camel.apache.org/blog/2020/06/camel34-whatsnew/</loc>
-    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/releases/</loc>
     <lastmod>2020-06-18T00:00:00+00:00</lastmod>
   </url>
   
