@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Howtos on Apache Camel</title>
+    <link>https://camel.apache.org/categories/Howtos/</link>
+    <description>Recent content in Howtos on Apache Camel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://camel.apache.org/categories/Howtos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Command line utility with Camel Quarkus</title>
+      <link>https://camel.apache.org/blog/2020/07/command-line-utility-with-camel-quarkus/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/07/command-line-utility-with-camel-quarkus/</guid>
+      <description>Camel and Camel Quarkus are typically used to create integration applications that run as long living processes, a.k.a. daemons or services. In this blog post, we are going to explain a slightly different use case: using Camel Quarkus in programs that exit by themselves after performing some desired tasks.
+Where can this be useful? The enterprise is full of scheduled batch processing. Say, some system exports some sort of reports daily at 4 a.</description>
+    </item>
+    
+  </channel>
+</rss>

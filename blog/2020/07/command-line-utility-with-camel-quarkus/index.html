@@ -1,0 +1,157 @@
+<!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../../../apple-touch-icon-57x57.png"> <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../apple-touch-icon-114x114.png"> <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../apple-touch-icon-72x72.png"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../apple-touch-icon-144x144.png"> <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../../../../apple-touch-icon-60x60.png"> <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../../../apple-touch-icon-120x120.png"> <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../../../../apple-touch-icon-76x76.png"> <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../apple-touch-icon-152x152.png"> <link rel="icon" type="image/png" href="../../../../favicon-196x196.png" sizes="196x196"> <link rel="icon" type="image/png" href="../../../../favicon-96x96.png" sizes="96x96"> <link rel="icon" type="image/png" href="../../../../favicon-32x32.png" sizes="32x32"> <link rel="icon" type="image/png" href="../../../../favicon-16x16.png" sizes="16x16"> <link rel="icon" type="image/png" href="../../../../favicon-128.png" sizes="128x128"> <meta name="application-name" content="Apache Camel"> <link rel="manifest" href="../../../../site.webmanifest"> <title>Command line utility with Camel Quarkus - Apache Camel</title> <link rel="canonical" href="../../../../blog/2020/07/command-line-utility-with-camel-quarkus/"> <link rel="stylesheet" href="../../../../_/css/site-71b58515c6.css"> </head> <body class="article"> <header class="header"> <nav class="navbar"> <div class="navbar-brand"> <a class="nav-logo" href="../../../../" title="Apache Camel"></a> <div id="topbar-nav" class="navbar-menu"> <div class="navbar-end"> <a class="navbar-item navbar-topics" href="../../../../blog/">Blog</a> <a class="navbar-item navbar-topics" href="../../../../docs/">Documentation</a> <div class="navbar-item has-dropdown is-hoverable"> <a class="navbar-link navbar-topics" href="#">Community</a> <div class="navbar-dropdown"> <a class="navbar-item" href="../../../../community/support/">Support</a> <a class="navbar-item" href="../../../../manual/latest/contributing.html">Contributing</a> <a class="navbar-item" href="../../../../community/user-stories/">User stories</a> <a class="navbar-item" href="../../../../community/articles/">Articles</a> <a class="navbar-item" href="../../../../community/books/">Books</a> <a class="navbar-item" href="../../../../community/team/">Team</a> </div> </div> <a class="navbar-item navbar-topics" href="../../../../download/">Download</a> <div class="navbar-item has-dropdown is-hoverable"> <a class="navbar-link navbar-topics" href="#">About</a> <div class="navbar-dropdown"> <a class="navbar-item" href="https://www.apache.org/events/current-event.html">Apache events</a> <a class="navbar-item" href="https://www.apache.org/licenses/">License</a> <a class="navbar-item" href="../../../../security/">Security</a> <a class="navbar-item" href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a> <a class="navbar-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a> </div> </div> </div> </div> <div class="navbar-fill"></div> <div class="break-row"></div> <div class="navbar-search results-hidden"> <input id="search" class="search" placeholder="Search" autocomplete="off"> <img src="/_/img/cancel.svg" alt="Clear" id="search-cancel"> <div id="search_results"></div> </div> <div id="social-media" class="navbar-tools"> <a rel="noopener noreferrer nofollow" href="https://github.com/apache/camel/" title="Collaborate on GitHub"><svg class="brand-icon"><use href="../../../../_/img/brand-logos.svg#github"/></svg></a> <a rel="noopener noreferrer nofollow" href="https://gitter.im/apache/apache-camel" title="Chat on Gitter"><svg class="brand-icon"><use href="../../../../_/img/brand-logos.svg#gitter"/></svg></a> <a rel="noopener noreferrer nofollow" href="https://twitter.com/ApacheCamel" title="Follow Apache Camel on Twitter"><svg class="brand-icon"><use href="../../../../_/img/brand-logos.svg#twitter"/></svg></a> </div> <button class="navbar-burger" data-target="topbar-nav" type="button"> <span></span> <span></span> <span></span> </button> </div> </nav> </header> <div class="body"> <main role="main blog"> <article class="blog doc"> <header> <a class="category" href="../../../../categories/Howtos/">HOWTOS</a><a class="category" href="../../../../categories/Camel-Quarkus/">CAMEL QUARKUS</a> <h1>Command line utility with Camel Quarkus</h1> </header> <div class="post"> <aside> <div class="summary">How to write a command line utility with Camel Quarkus</div> Posted on <time itemprop="published" datetime="2020-07-15" title="Wednesday, July 15, 2020">July 15, 2020</time>, by <figure> <img src="https://avatars0.githubusercontent.com/u/1826249?v=4" alt="Peter Palaga"> <figcaption rel="author">Peter Palaga</figcaption> </figure> <p> <a class="arrow prev" href="../../../../blog/2020/07/camel-quarkus-release-1.0.0-CR3/" title="Previous post: Camel Quarkus 1.0.0-CR3 Released">&#10094;</a> </p> </aside> <div class="post-content"> <p><a href="https://camel.apache.org/" rel="nofollow noreferrer">Camel</a> and <a href="https://camel.apache.org/camel-quarkus/latest/index.html" rel="nofollow noreferrer">Camel Quarkus</a> are typically used to create integration applications that run as long living processes, a.k.a. daemons or services. In this blog post, we are going to explain a slightly different use case: using Camel Quarkus in programs that exit by themselves after performing some desired tasks.</p> <h2 id="where-can-this-be-useful">Where can this be useful?</h2> <p>The enterprise is full of scheduled batch processing. Say, some system exports some sort of reports daily at 4 a.m. Those need to be transformed (e.g. XML -&gt; Excel) and transferred somewhere else (e.g. via mail, FTP or similar).</p> <p>Camel is a perfect match for doing the transformation and the transfer. However, having a service running <sup>24</sup>&frasl;<sub>7</sub> for doing something useful just once a day would probably be an overkill. Combining a <a href="https://en.wikipedia.org/wiki/Cron" rel="nofollow noreferrer">Cron job</a> (or a similar scheduling technology) with a command line utility may suit much better in situations like this.</p> <h2 id="so-how-can-i-write-a-command-line-tool-with-camel-quarkus">So how can I write a command line tool with Camel Quarkus?</h2> <p>There are just two things where it would differ from a stock Camel Quarkus application:</p> <ol> <li>Adding <code>camel-quarkus-main</code> dependency</li> <li>Setting an exit condition in <code>application.properties</code></li> </ol> <p>The rest of the application - most notably the <a href="https://camel.apache.org/manual/latest/routes.html" rel="nofollow noreferrer">Route</a> that performs the actual data transformation and transfer - will look the same like with a traditional Camel service.</p> <h2 id="a-minimal-hello-world">A minimal Hello World!</h2> <p>Let&rsquo;s go through a minimal example that just prints <code>Hello World!</code> to the console and exits.</p> <p>The route definition could look like the following:</p> <pre><code class="language-java">import org.apache.camel.builder.RouteBuilder;
+
+@ApplicationScoped
+public class CamelRoute extends RouteBuilder {
+
+    @Override
+    public void configure() {
+        from(&quot;timer:hello?delay=-1&amp;repeatCount=1&quot;)
+                .setBody().constant(&quot;Hello World!&quot;)
+                .to(&quot;log:hello&quot;);
+    }
+}
+</code></pre> <p>Note that we use the <a href="https://camel.apache.org/components/latest/timer-component.html" rel="nofollow noreferrer">timer</a> component to trigger the route execution. The URI parameter <code>delay=-1</code> causes the timer to be triggered with no initial delay and <code>repeatCount=1</code> ensures that the route is executed just once.</p> <p>However, doing just the above would not make our application exit by itself. <a href="https://camel.apache.org/components/latest/others/main.html" rel="nofollow noreferrer">camel-main</a> and its <code>camel.main.durationMax*</code> family of configuration options offers a way to solve that. E.g. we can set the following in <code>application.properties</code></p> <pre><code class="language-properties">camel.main.durationMaxMessages = 1
+</code></pre> <p>to make the application exit after the route has processed a single message.</p> <p>For the configuration to get effective, we need to add the respective dependency to the application. In case of Maven, it is</p> <pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.camel.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;camel-quarkus-main&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre> <p>Of course, we also need to add the dependencies for <code>timer</code> and <code>log</code> components:</p> <pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.camel.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;camel-quarkus-log&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.camel.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;camel-quarkus-timer&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre> <p>When invoking the application on the command line, you should see something like the following:</p> <pre><code class="language-shell">]$ java -jar target/*-runner.jar
+2020-07-15 11:32:13,577 INFO  [org.apa.cam.qua.cor.CamelBootstrapRecorder] (main) bootstrap runtime: org.apache.camel.quarkus.main.CamelMainRuntime
+2020-07-15 11:32:13,623 INFO  [org.apa.cam.mai.BaseMainSupport] (main) Auto-configuration summary:
+2020-07-15 11:32:13,623 INFO  [org.apa.cam.mai.BaseMainSupport] (main)  camel.main.durationMaxMessages=1
+2020-07-15 11:32:13,700 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) is starting
+2020-07-15 11:32:13,701 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2020-07-15 11:32:13,709 INFO  [org.apa.cam.imp.eng.InternalRouteStartupManager] (main) Route: route1 started and consuming from: timer://hello
+2020-07-15 11:32:13,714 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Total 1 routes, of which 1 are started
+2020-07-15 11:32:13,715 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) started in 0.014 seconds
+2020-07-15 11:32:13,718 INFO  [org.apa.cam.mai.MainSupport] (camel-main) Waiting until: 1 messages has been processed
+2020-07-15 11:32:13,719 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode 1.1.0-SNAPSHOT on JVM (powered by Quarkus 1.6.0.Final) started in 0.592s.
+2020-07-15 11:32:13,720 INFO  [io.quarkus] (main) Profile prod activated.
+2020-07-15 11:32:13,721 INFO  [io.quarkus] (main) Installed features: [camel-core, camel-log, camel-main, camel-policy, camel-support-common, camel-timer, cdi]
+2020-07-15 11:32:13,725 INFO  [hello] (Camel (camel-1) thread #0 - timer://hello) Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello World!]
+2020-07-15 11:32:13,729 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #0 - timer://hello) Duration max messages triggering shutdown of the JVM.
+2020-07-15 11:32:13,730 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutting down
+2020-07-15 11:32:13,740 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) CamelContext: camel-1 has been shutdown, triggering shutdown of the JVM.
+2020-07-15 11:32:13,741 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) uptime 0.041 seconds
+2020-07-15 11:32:13,741 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutdown in 0.011 seconds
+2020-07-15 11:32:13,745 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode stopped in 0.005s
+</code></pre> <h2 id="command-line-parameters">Command line parameters</h2> <p>That was really trivial. How about greeting a person whose name is passed via a command line parameter? We can use <a href="https://quarkus.io/guides/config" rel="nofollow noreferrer">Quarkus MicroProfile Config</a> for that:</p> <pre><code class="language-java">import javax.enterprise.context.ApplicationScoped;
+import org.apache.camel.builder.RouteBuilder;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
+@ApplicationScoped
+public class CamelRoute extends RouteBuilder {
+
+    @ConfigProperty(name = &quot;greeted.subject&quot;, defaultValue = &quot;World&quot;)
+    String greetedSubject;
+
+    @Override
+    public void configure() {
+        from(&quot;timer:hello?delay=-1&quot;)
+                .setBody().constant(&quot;Hello &quot; + greetedSubject + &quot;!&quot;)
+                .to(&quot;log:hello&quot;);
+    }
+}
+</code></pre> <p>For the <code>@ConfigProperty</code> annotation to work, the <code>CamelRoute</code> class needs to be annotated with <code>@ApplicationScoped</code>.</p> <p>Having the above in place, we can call the application with the <code>-Dgreeted.subject=Joe</code> parameter at the command line and voilà</p> <pre><code class="language-shell">$ $ java -Dgreeted.subject=Joe -jar target/*-runner.jar
+2020-07-15 11:42:18,770 INFO  [org.apa.cam.qua.cor.CamelBootstrapRecorder] (main) bootstrap runtime: org.apache.camel.quarkus.main.CamelMainRuntime
+2020-07-15 11:42:18,816 INFO  [org.apa.cam.mai.BaseMainSupport] (main) Auto-configuration summary:
+2020-07-15 11:42:18,816 INFO  [org.apa.cam.mai.BaseMainSupport] (main)  camel.main.durationMaxMessages=1
+2020-07-15 11:42:18,892 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) is starting
+2020-07-15 11:42:18,893 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2020-07-15 11:42:18,902 INFO  [org.apa.cam.imp.eng.InternalRouteStartupManager] (main) Route: route1 started and consuming from: timer://hello
+2020-07-15 11:42:18,907 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Total 1 routes, of which 1 are started
+2020-07-15 11:42:18,908 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) started in 0.015 seconds
+2020-07-15 11:42:18,911 INFO  [org.apa.cam.mai.MainSupport] (camel-main) Waiting until: 1 messages has been processed
+2020-07-15 11:42:18,914 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode 1.1.0-SNAPSHOT on JVM (powered by Quarkus 1.6.0.Final) started in 0.569s.
+2020-07-15 11:42:18,915 INFO  [io.quarkus] (main) Profile prod activated.
+2020-07-15 11:42:18,915 INFO  [io.quarkus] (main) Installed features: [camel-core, camel-log, camel-main, camel-policy, camel-support-common, camel-timer, cdi]
+2020-07-15 11:42:18,919 INFO  [hello] (Camel (camel-1) thread #0 - timer://hello) Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello Joe!]
+2020-07-15 11:42:18,921 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #0 - timer://hello) Duration max messages triggering shutdown of the JVM.
+2020-07-15 11:42:18,922 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutting down
+2020-07-15 11:42:18,931 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) CamelContext: camel-1 has been shutdown, triggering shutdown of the JVM.
+2020-07-15 11:42:18,933 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) uptime 0.040 seconds
+2020-07-15 11:42:18,933 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutdown in 0.011 seconds
+2020-07-15 11:42:18,937 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode stopped in 0.005s
+</code></pre> <h2 id="compiling-the-command-line-utility-to-a-native-executable">Compiling the command line utility to a native executable</h2> <p><a href="https://camel.apache.org/camel-quarkus/latest/user-guide/first-steps.html#_native_mode" rel="nofollow noreferrer">As usual with Camel Quarkus</a>, the application can be compiled to native executable by activating the <code>native</code> profile. GraalVM with <code>native-image</code> command installed and <code>GRAALVM_HOME</code> environment variable set is required for that, see <a href="https://quarkus.io/guides/building-native-image" rel="nofollow noreferrer">Building a native executable</a> section of the Quarkus documentation.</p> <pre><code class="language-shell">$ export GRAALVM_HOME=...
+$ mvn clean package -Pnative
+...
+$ ls -lh target
+...
+-rwxr-xr-x. 1 ppalaga ppalaga  33M Jul 15 11:48 command-mode-runner
+...
+</code></pre> <p>The basic command line application compiled into a Linux native executable has about 33 Megabytes.</p> <p>Running it is easy:</p> <pre><code class="language-shell">$ target/*runner -Dgreeted.subject=Joe
+2020-07-15 12:19:22,810 INFO  [org.apa.cam.qua.cor.CamelBootstrapRecorder] (main) bootstrap runtime: org.apache.camel.quarkus.main.CamelMainRuntime
+2020-07-15 12:19:22,811 INFO  [org.apa.cam.mai.BaseMainSupport] (main) Auto-configuration summary:
+2020-07-15 12:19:22,811 INFO  [org.apa.cam.mai.BaseMainSupport] (main)  camel.main.durationMaxMessages=1
+2020-07-15 12:19:22,812 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) is starting
+2020-07-15 12:19:22,812 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2020-07-15 12:19:22,812 INFO  [org.apa.cam.imp.eng.InternalRouteStartupManager] (main) Route: route1 started and consuming from: timer://hello
+2020-07-15 12:19:22,812 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Total 1 routes, of which 1 are started
+2020-07-15 12:19:22,812 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (main) Apache Camel 3.4.0 (camel-1) started in 0.000 seconds
+2020-07-15 12:19:22,812 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode 1.1.0-SNAPSHOT native (powered by Quarkus 1.6.0.Final) started in 0.007s.
+2020-07-15 12:19:22,813 INFO  [io.quarkus] (main) Profile prod activated.
+2020-07-15 12:19:22,812 INFO  [hello] (Camel (camel-1) thread #0 - timer://hello) Exchange[ExchangePattern: InOnly, BodyType: String, Body: Hello Joe!]
+2020-07-15 12:19:22,813 INFO  [io.quarkus] (main) Installed features: [camel-core, camel-log, camel-main, camel-policy, camel-support-common, camel-timer, cdi]
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.mai.MainSupport] (camel-main) Waiting until: 1 messages has been processed
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #0 - timer://hello) Duration max messages triggering shutdown of the JVM.
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutting down
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.mai.MainLifecycleStrategy] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) CamelContext: camel-1 has been shutdown, triggering shutdown of the JVM.
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) uptime 0.001 seconds
+2020-07-15 12:19:22,813 INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Camel (camel-1) thread #1 - CamelMainShutdownCamelContext) Apache Camel 3.4.0 (camel-1) is shutdown in 0.000 seconds
+2020-07-15 12:19:22,813 INFO  [io.quarkus] (main) camel-quarkus-integration-test-main-command-mode stopped in 0.000s
+</code></pre> <h2 id="show-me-the-code">Show me the code!</h2> <p>The sources of the application used in this blog post are based on the <code>main-command-mode</code> integration test in the Camel Quarkus source tree: <a href="https://github.com/apache/camel-quarkus/tree/master/integration-tests/main-command-mode" rel="nofollow noreferrer">https://github.com/apache/camel-quarkus/tree/master/integration-tests/main-command-mode</a></p> <p>Bonus: The integration test module shows a way how to test command line applications.</p> <p>Have a lot of fun!</p> </div> </div> </article> </main> </div> <div class="footer-tools"> <a title="Improve this document, receive free virtual hugs &hearts;" href="https://github.com/apache/camel-website/edit/master/content/blog/2020/07/command-line-utility-with-camel-quarkus/index.md">Edit this Page</a> <a href="#top" title="Reach the top of the page">Back to top</a> </div> <footer> <div class="footer"> <figure class="logo"> <img class="logo" src="../../../../_/img/logo-d.svg" alt="Apache Camel Logo" aria-label="white silhouette of a camel in front of a sand dune"> </figure> <dl> <dt>Overview</dt> <dd><a href="../../../../blog/">Blog</a></dd> <dd><a href="../../../../components/latest/">Components</a></dd> <dd><a href="../../../../download/">Download</a></dd> <dd><a href="../../../../manual/latest/getting-started.html">Getting started</a></dd> <dd><a href="../../../../manual/latest/faq/index.html">FAQ</a></dd> </dl> <dl> <dt>Community</dt> <dd><a href="https://www.apache.org/foundation/policies/conduct">Code of conduct</a> </dd><dd><a href="../../../../community/support/">Support</a></dd> <dd><a href="../../../../manual/latest/contributing.html">Contributing</a></dd> <dd><a href="../../../../community/user-stories/">User stories</a></dd> <dd><a href="../../../../community/articles/">Articles</a></dd> <dd><a href="../../../../community/books/">Books</a></dd> <dd><a href="../../../../community/team/">Team</a></dd> </dl> <dl> <dt>About</dt> <dd><a href="../../../../acknowledgments/">Acknowledgments</a> </dd><dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/events/current-event.html" title="Apache Events">Apache Events</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/licenses/" title="License">License</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/security/" title="Security">Security</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/sponsorship.html" title="Sponsorship">Sponsorship</a></dd> <dd><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.apache.org/foundation/thanks.html" title="Thanks">Thanks</a></dd> </dl> <p> &copy; 2004-2020 The <a href="https://apache.org">Apache Software Foundation</a>.<br> Apache Camel, Camel, Apache, the Apache feather logo, and the Apache Camel project logo are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners. </p> </div> </footer> <script src="../../../../_/js/vendor/algoliasearch-d9610b91bb.js"></script> <script src="../../../../_/js/site-90d53125b4.js"></script> <script async src="../../../../_/js/vendor/highlight-a988c6fdd9.js"></script> <script async src="../../../../_/js/vendor/svg4everybody-195d47ce7d.js"></script> <script type="application/ld+json"> {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Apache Camel",
+    "url": "https:\/\/camel.apache.org\/"
+    , "sameAs": ["https://twitter.com/ApacheCamel"]
+    , "logo": "https:\/\/camel.apache.org\/_\/img\/logo-d.svg"
+    , "description": "Apache Camel ™ is a versatile open-source integration framework based on known Enterprise Integration Patterns. Camel empowers you to define routing and mediation rules in a variety of domain-specific languages, including a Java-based Fluent API, Spring or Blueprint XML Configuration files, and a Scala DSL." 
+  } </script> <script type="application/ld+json"> {
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@id": "https://camel.apache.org/",
+          "name": "Apache Camel"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@id": "https://camel.apache.org/blog/",
+          "name": "blog"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://camel.apache.org/blog/2020/",
+          "name": "2020"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://camel.apache.org/blog/2020/07/",
+          "name": "07"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  5 ,
+        "item": {
+          "@id": "https://camel.apache.org/blog/2020/07/command-line-utility-with-camel-quarkus/",
+          "name": "command-line-utility-with-camel-quarkus"
+        }
+    }]
+} </script> </body> </html> 
