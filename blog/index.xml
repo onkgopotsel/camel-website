@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RELEASE 3.4.2</title>
+      <link>https://camel.apache.org/blog/release-3-4-2.html</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/release-3-4-2.html</guid>
+      <description>The Camel community announces the immediate availability of Camel 3.4.2, a new patch release for the 3.4 LTS version with 6 new features, improvements and fixes.
+The main reason we are releasing this version is that we compiled 3.4.1 with Java 11 which leads to issues as described in this Github issue. Although we already have a fix for this problem (see CAMEL-15309), we found that it would be safer to push out a release compiled with Java 8 so nobody gets affected by this or any similar problems.</description>
+    </item>
     
     <item>
       <title>RELEASE 2.25.2</title>
