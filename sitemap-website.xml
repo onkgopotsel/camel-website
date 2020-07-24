@@ -720,6 +720,10 @@
   </url>
   
   <url>
+    <loc>https://camel.apache.org/community/mailing-list/</loc>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/misc/</loc>
   </url>
   
@@ -737,10 +741,6 @@
   
   <url>
     <loc>https://camel.apache.org/docs/sources/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/community/mailing-list/</loc>
   </url>
   
   <url>

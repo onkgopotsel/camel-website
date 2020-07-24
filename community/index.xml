@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>Mailing Lists</title>
+      <link>https://camel.apache.org/community/mailing-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/community/mailing-list/</guid>
+      <description>Use Camel User List You should post and subscriber to the Camel User List for all your questions on using Camel, or how to do X with Camel etc. If in doubt use this list. The other list Camel Developer List, is for the Camel team to discus development of the actual Camel project; do not use this list for question on using Camel. Again to re-iterate, use the Camel User List, for you Camel questions.</description>
+    </item>
+    
+    <item>
       <title>Sources</title>
       <link>https://camel.apache.org/community/sources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -50,16 +59,6 @@ https://gitbox.apache.org/repos/asf/camel.git  ## Web Browing Using FishEye
 A hearty thanks to Atlassian for providing FishEye hosting for Camel. Below is the URL to browse the Subversion repo via FishEye:
 https://fisheye6.atlassian.com/browse/camel-git  ## Checking out from git
 git clone https://gitbox.apache.org/repos/asf/camel.git  Only project developers can commit to the git via this method. SSH must be installed on your client machine. Enter your site password when prompted.</description>
-    </item>
-    
-    <item>
-      <title>Support</title>
-      <link>https://camel.apache.org/community/mailing-list/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://camel.apache.org/community/mailing-list/</guid>
-      <description>Mailing Lists Use Camel User List
-You should post and subscriber to the Camel User List for all your questions on using Camel, or how to do X with Camel etc. If in doubt use this list. The other list Camel Developer List, is for the Camel team to discus development of the actual Camel project; do not use this list for question on using Camel. Again to re-iterate, use the Camel User List, for you Camel questions.</description>
     </item>
     
     <item>
