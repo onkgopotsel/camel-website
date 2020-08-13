@@ -4,21 +4,31 @@
   
   <url>
     <loc>https://camel.apache.org/blog/</loc>
-    <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://camel.apache.org/blog/2020/08/Camel-kafka-connector-0.4.0-RELEASE/</loc>
-    <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+    <loc>https://camel.apache.org/categories/Camel-Quarkus/</loc>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/2020/08/camel-quarkus-release-1.0.0/</loc>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://camel.apache.org/</loc>
-    <lastmod>2020-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://camel.apache.org/categories/Releases/</loc>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/blog/2020/08/Camel-kafka-connector-0.4.0-RELEASE/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -55,11 +65,6 @@
   <url>
     <loc>https://camel.apache.org/releases/release-3.4.2/</loc>
     <lastmod>2020-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/categories/Camel-Quarkus/</loc>
-    <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
