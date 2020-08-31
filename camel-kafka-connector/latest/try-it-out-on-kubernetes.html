@@ -9,7 +9,7 @@ curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STR
     | sed "s/namespace: .*/namespace: $NAMESPACE/g" | kubectl apply -f -
 
 # deploy Kafka cluster
-oc apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-${STRIMZI_VER/%.0/.x}/examples/kafka/kafka-persistent-single.yaml</code></pre> </div> </div> <div class="paragraph"> <p>Next, we build a custom KafkaConnect image to include all needed connectors (use your own registry here):</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight nowrap"><code class="language-bash hljs" data-lang="bash">CKC_VERSION="0.3.0"
+kubectl apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-${STRIMZI_VER/%.0/.x}/examples/kafka/kafka-persistent-single.yaml</code></pre> </div> </div> <div class="paragraph"> <p>Next, we build a custom KafkaConnect image to include all needed connectors (use your own registry here):</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight nowrap"><code class="language-bash hljs" data-lang="bash">CKC_VERSION="0.3.0"
 STRIMZI_IMG="strimzi/kafka:latest-kafka-2.5.0"
 REGISTRY_URL="quay.io"
 REGISTRY_USR="fvaleri"
