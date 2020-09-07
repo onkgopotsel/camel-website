@@ -6,10 +6,19 @@
     <description>Recent content in Tooling on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/categories/Tooling/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Upgrading to Camel 3.0.0 with Windup</title>
+      <link>https://camel.apache.org/blog/2020/09/windup/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/windup/</guid>
+      <description>We&amp;rsquo;ll show you how Windup can help you plan and estimate your upgrade to Camel 3</description>
+    </item>
     
     <item>
       <title>Language Support for Apache Camel - VS Code extension 0.0.20</title>

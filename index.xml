@@ -6,10 +6,31 @@
     <description>Recent content in Home on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Camel 3.5 What&#39;s New</title>
+      <link>https://camel.apache.org/blog/2020/09/Camel35-Whatsnew/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/Camel35-Whatsnew/</guid>
+      <description>Apache Camel 3.5 has just been released.
+This is a non-LTS release which means we will not provide patch releases, but use the release as-is. The next planned LTS release is 3.7 scheduled towards end of the year.
+So what&amp;rsquo;s in this release? This release introduces new set of features and noticeable improvements that will we cover in this blog post.
+Java 14 This is the first release that supports Java 14.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading to Camel 3.0.0 with Windup</title>
+      <link>https://camel.apache.org/blog/2020/09/windup/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/windup/</guid>
+      <description>We&amp;rsquo;ll show you how Windup can help you plan and estimate your upgrade to Camel 3</description>
+    </item>
     
     <item>
       <title>RELEASE 3.5.0</title>
@@ -22,18 +43,6 @@ The artifacts are published and ready for you to download from the Central Maven
 Many thanks to all who made this release possible.
 On behalf of the Camel PMC,
 Gregor Zurowski</description>
-    </item>
-    
-    <item>
-      <title>Apache Camel 3.5 What&#39;s New</title>
-      <link>https://camel.apache.org/blog/2020/09/Camel35-Whatsnew/</link>
-      <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://camel.apache.org/blog/2020/09/Camel35-Whatsnew/</guid>
-      <description>Apache Camel 3.5 has just been released.
-This is a non-LTS release which means we will not provide patch releases, but use the release as-is. The next planned LTS release is 3.7 scheduled towards end of the year.
-So what&amp;rsquo;s in this release? This release introduces new set of features and noticeable improvements that will we cover in this blog post.
-Java 14 This is the first release that supports Java 14.</description>
     </item>
     
     <item>
