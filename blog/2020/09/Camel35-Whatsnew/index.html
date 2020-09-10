@@ -12,11 +12,11 @@ camel.beans.foo.countries[de].language = DE
 </code></pre> <p>Then the <code>foo</code> bean has a property named <code>countries</code> that is a <code>java.util.Map</code> type. The Map contains element of type <code>com.foo.MyCountry</code> that has been explicit configured above.</p> <p>However Camel is now capable to know this information by source code generated <em>configurers</em>:</p> <pre><code>    @Configurer
     public class Foo
 
-        private Map&lt;Country&gt; countries;
+        private Map&lt;String, Country&gt; countries;
 
         // getter/setter omitted
     }
-</code></pre> <p>The <code>Foo</code> class has been annotated with <code>@Configurer</code> which allows Camel tooling to generate reflection free configurers source code. This is what Camel internally uses to do its vast configuration of all its EIPs, components and so on. Now we have exposed this for end users. Notice how the Map contains the collection type as a generic type with <code>Map&lt;Country&gt;</code>. That information is now generated in the configurers, so Camel knows the value types in the collections. The configuration can therefore be shortened to:</p> <pre><code>camel.beans.foo.countries[usa].name = United States of America
+</code></pre> <p>The <code>Foo</code> class has been annotated with <code>@Configurer</code> which allows Camel tooling to generate reflection free configurers source code. This is what Camel internally uses to do its vast configuration of all its EIPs, components and so on. Now we have exposed this for end users. Notice how the Map contains the collection type as a generic type with <code>Map&lt;String, Country&gt;</code>. That information is now generated in the configurers, so Camel knows the value types in the collections. The configuration can therefore be shortened to:</p> <pre><code>camel.beans.foo.countries[usa].name = United States of America
 camel.beans.foo.countries[usa].language = EN
 camel.beans.foo.countries[de].name = Germany
 camel.beans.foo.countries[de].language = DE
