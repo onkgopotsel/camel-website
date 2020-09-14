@@ -6,10 +6,23 @@
     <description>Recent content in Blog on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Camel Kafka Connector 0.5.0: What&#39;s New</title>
+      <link>https://camel.apache.org/blog/2020/09/Camel-kafka-connector-050-Whatsnew/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/Camel-kafka-connector-050-Whatsnew/</guid>
+      <description>Apache Camel Kafka Connector 0.5.0 has just been released.
+This is based on the non-LTS release of Apache Camel 3.5.0, this means we will not provide patch releases, but use the release as-is.
+So what&amp;rsquo;s in this release? This release introduce bug fixes, improvements and new connectors obviously
+New connectors The new connectors introduced in this release are the following:
+ ArangoDB: Perform operations on ArangoDb when used as a Document Database, or as a Graph Database.</description>
+    </item>
     
     <item>
       <title>Apache Camel 3.5 What&#39;s New</title>
