@@ -6,10 +6,23 @@
     <description>Recent content in Camel Quarkus on Apache Camel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://camel.apache.org/categories/Camel-Quarkus/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Camel Quarkus 1.1.0 Released</title>
+      <link>https://camel.apache.org/blog/2020/09/camel-quarkus-release-1.1.0/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/camel-quarkus-release-1.1.0/</guid>
+      <description>Apache Camel Quarkus 1.1.0 has been released!
+We continue to integrate with the latest Camel and Quarkus releases, whilst adding new features and fixing bugs.
+For a full overview of the changes see the 1.1.0 milestone details.
+Here are some of the highlights.
+Major component upgrades  Camel 3.5.0 Quarkus 1.8.0  New extensions We added a whopping 174 new extensions in this release! This is because Camel Quarkus will shortly become the only and default runtime in our sibling project Camel K.</description>
+    </item>
     
     <item>
       <title>Camel Quarkus 1.0.1 Released</title>

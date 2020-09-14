@@ -25,6 +25,19 @@ New connectors The new connectors introduced in this release are the following:
     </item>
     
     <item>
+      <title>Camel Quarkus 1.1.0 Released</title>
+      <link>https://camel.apache.org/blog/2020/09/camel-quarkus-release-1.1.0/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://camel.apache.org/blog/2020/09/camel-quarkus-release-1.1.0/</guid>
+      <description>Apache Camel Quarkus 1.1.0 has been released!
+We continue to integrate with the latest Camel and Quarkus releases, whilst adding new features and fixing bugs.
+For a full overview of the changes see the 1.1.0 milestone details.
+Here are some of the highlights.
+Major component upgrades  Camel 3.5.0 Quarkus 1.8.0  New extensions We added a whopping 174 new extensions in this release! This is because Camel Quarkus will shortly become the only and default runtime in our sibling project Camel K.</description>
+    </item>
+    
+    <item>
       <title>Apache Camel 3.5 What&#39;s New</title>
       <link>https://camel.apache.org/blog/2020/09/Camel35-Whatsnew/</link>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
