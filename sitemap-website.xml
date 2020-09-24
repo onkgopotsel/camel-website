@@ -53,12 +53,12 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/releases/</loc>
+    <loc>https://camel.apache.org/releases/release-3.5.0/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://camel.apache.org/releases/release-3.5.0/</loc>
+    <loc>https://camel.apache.org/releases/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -743,14 +743,6 @@
   </url>
   
   <url>
-    <loc>https://camel.apache.org/community/</loc>
-  </url>
-  
-  <url>
-    <loc>https://camel.apache.org/docs/</loc>
-  </url>
-  
-  <url>
     <loc>https://camel.apache.org/acknowledgments/</loc>
   </url>
   
@@ -771,6 +763,14 @@
   </url>
   
   <url>
+    <loc>https://camel.apache.org/community/</loc>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/docs/</loc>
+  </url>
+  
+  <url>
     <loc>https://camel.apache.org/download/</loc>
   </url>
   
@@ -788,6 +788,10 @@
   
   <url>
     <loc>https://camel.apache.org/privacy-policy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://camel.apache.org/sitemap/</loc>
   </url>
   
   <url>
