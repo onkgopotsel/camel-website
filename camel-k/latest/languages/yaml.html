@@ -24,7 +24,26 @@
       json:
         library: Gson</code></pre> </div> </div> <div class="paragraph"> <p>To make the DSL less verbose, the <code>data-format</code> field can be omitted:</p> </div> <div class="listingblock"> <div class="title">Implicit Data Format field</div> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">set-body:
     json:
-      library: Gson</code></pre> </div> </div> <div class="admonitionblock note"> <div class="table-wrapper"><table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>In case you want to use the data-format&#8217;s default settings, you need to place an empty block as data format parameters, like <code>json: {}</code></p> </div> </td> </tr> </table></div> </div> </li> </ul> </div> </div> </div> <div class="sect1"> <h2 id="_defining_beans"><a class="anchor" href="#_defining_beans"></a>Defining beans</h2> <div class="sectionbody"> <div class="paragraph"> <p>In addition to the general support for creating beans provided by <a href="https://camel.apache.org/components/latest/others/main.html#_specifying_custom_beans">Camel Main</a>, the YAML DSL provide a convenient syntax to define and configure them:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- beans:
+      library: Gson</code></pre> </div> </div> <div class="admonitionblock note"> <div class="table-wrapper"><table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>In case you want to use the data-format&#8217;s default settings, you need to place an empty block as data format parameters, like <code>json: {}</code></p> </div> </td> </tr> </table></div> </div> </li> </ul> </div> </div> </div> <div class="sect1"> <h2 id="_defining_endpoints"><a class="anchor" href="#_defining_endpoints"></a>Defining endpoints</h2> <div class="sectionbody"> <div class="paragraph"> <p>To define an endpoint with the YAML dsl you have three options:</p> </div> <div class="olist arabic"> <ol class="arabic"> <li> <p>Using a classic Camel URI:</p> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- from:
+    uri: "timer:tick?period=1s"
+    steps:
+      - to:
+          uri: "telegram:bots?authorizationToken=XXX"</code></pre> </div> </div> </li> <li> <p>Using URI and parameters:</p> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- from:
+    uri: "timer://tick"
+    parameters:
+      period: "1s"
+    steps:
+      - to:
+          uri: "telegram:bots"
+          parameters:
+            authorizationToken: "XXX"</code></pre> </div> </div> </li> <li> <p>Using the YAML implementation of the <a href="https://camel.apache.org/manual/latest/Endpoint-dsl.html">Endpoint DSL</a>:</p> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- from:
+    timer:
+      name: "tick"
+      period: "1s"
+    steps:
+      - telegram:
+          type: "bots"
+          authorizationToken: "XXX"</code></pre> </div> </div> </li> </ol> </div> <div class="admonitionblock warning"> <div class="table-wrapper"><table> <tr> <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> <td class="content"> <div class="paragraph"> <p>Support for the Endpoint DSL with YAML is experimental and subject to changes.</p> </div> </td> </tr> </table></div> </div> <div class="admonitionblock note"> <div class="table-wrapper"><table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>Support for Endpoint DSL auto completion <a href="https://github.com/apache/camel-k-runtime/issues/485">is not yet available</a>.</p> </div> </td> </tr> </table></div> </div> </div> </div> <div class="sect1"> <h2 id="_defining_beans"><a class="anchor" href="#_defining_beans"></a>Defining beans</h2> <div class="sectionbody"> <div class="paragraph"> <p>In addition to the general support for creating beans provided by <a href="https://camel.apache.org/components/latest/others/main.html#_specifying_custom_beans">Camel Main</a>, the YAML DSL provide a convenient syntax to define and configure them:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- beans:
   - name: beanFromMap  <i class="conum" data-value="1"></i><b>(1)</b>
     type: com.acme.MyBean <i class="conum" data-value="2"></i><b>(2)</b>
     properties: <i class="conum" data-value="3"></i><b>(3)</b>
