@@ -13,6 +13,9 @@
 <loc>https://camel.apache.org/sitemap-camel-quarkus.xml</loc>
 </sitemap>
 <sitemap>
+<loc>https://camel.apache.org/sitemap-camel-quarkus-examples.xml</loc>
+</sitemap>
+<sitemap>
 <loc>https://camel.apache.org/sitemap-camel-spring-boot.xml</loc>
 </sitemap>
 <sitemap>
