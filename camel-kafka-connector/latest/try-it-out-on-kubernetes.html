@@ -33,7 +33,7 @@ echo -e "FROM $STRIMZI_IMG\nCOPY ./plugins/ /opt/kafka/plugins/\nUSER 1001" &gt;
 sudo podman build --layers=false -t $REGISTRY_USR/my-connect:1.0.0 -f $TMP/Dockerfile
 sudo podman login -u $REGISTRY_USR $REGISTRY_URL
 sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTRY_USR/my-connect:1.0.0
-sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTRY_USR/my-connect:latest</code></pre> </div> </div> <div class="paragraph"> <p>Finally, we deploy the KafkaConnect cluster using our custom image:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight nowrap"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;'EOF' &gt; $TMP/my-connect.yaml
+sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTRY_USR/my-connect:latest</code></pre> </div> </div> <div class="literalblock"> <div class="content"> <pre>Note: your plugin must be under a directory in the plugins. An example path would be /opt/kafka/plugins/myplugin/&lt;my-plugin-jars-here&gt;</pre> </div> </div> <div class="paragraph"> <p>Finally, we deploy the KafkaConnect cluster using our custom image:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight nowrap"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;'EOF' &gt; $TMP/my-connect.yaml
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaConnect
 metadata:
