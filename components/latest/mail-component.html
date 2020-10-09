@@ -41,7 +41,8 @@ map.put("Subject", "Camel is cool");</code></pre> </div> </div> </div> </div> <d
 2008-05-08 06:32:12,187 INFO  newmail - Exchange[MailMessage: messageNumber=[332], from=[James Bond &lt;007@mi5.co.uk&gt;], to=YOUR_USERNAME@gmail.com], subject=[...</code></pre> </div> </div> </div> </div> <div class="sect1"> <h2 id="_consuming_mails_with_attachment_sample"><a class="anchor" href="#_consuming_mails_with_attachment_sample"></a>Consuming mails with attachment sample</h2> <div class="sectionbody"> <div class="paragraph"> <p>In this sample we poll a mailbox and store all attachments from the mails as files. First, we define a route to poll the mailbox. As this sample is based on google mail, it uses the same route as shown in the SSL sample:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from("imaps://imap.gmail.com?username=YOUR_USERNAME@gmail.com&amp;password=YOUR_PASSWORD"
     + "&amp;delete=false&amp;unseen=true&amp;delay=60000").process(new MyMailProcessor());</code></pre> </div> </div> <div class="paragraph"> <p>Instead of logging the mail we use a processor where we can process the mail from java code:</p> </div> <div class="listingblock"> <div class="content"> <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public void process(Exchange exchange) throws Exception {
     // the API is a bit clunky so we need to loop
-    Map&lt;String, DataHandler&gt; attachments = exchange.getIn().getAttachments();
+    AttachmentMessage attachmentMessage = exchange.getMessage(AttachmentMessage.class);
+    Map&lt;String, DataHandler&gt; attachments = attachmentMessage.getAttachments();
     if (attachments.size() &gt; 0) {
         for (String name : attachments.keySet()) {
             DataHandler dh = attachments.get(name);
